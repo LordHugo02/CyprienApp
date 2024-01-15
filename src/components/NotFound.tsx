@@ -1,18 +1,32 @@
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
+import { useEffect } from "react";
 
 const NotFound = () => {
    const navigate = useNavigate();
+
+   useEffect(() => {
+      let main = document.querySelector('main') as HTMLElement
+      let header = document.querySelector('header') as HTMLElement
+      if (!header || !main) return;
+
+      main.style.height = "calc(100vh - "+header.getBoundingClientRect().height+"px)"
+
+   }, [])
+
    return (
-      <div>
+      <>
          <Header />
-         <button onClick={() => navigate(-1)}>Retour</button>
-         <div className="flex flex-row items-end gap-1">
-            <p className='text-5xl origin-404-first rotate-[-25deg] w-max'>4</p>
-            <p className='-mx-3 text-5xl w-max'>0</p>
-            <p className='text-5xl origin-404-last rotate-[100deg] w-max'>4</p>
-         </div>
-      </div>   
+         <main id="" className="relative h-full w-full flex flex-col items-center justify-center text-blue">
+            <button className="absolute top-10 left-1/4 nm-convex-blue-base-sm text-white text-xl px-4 py-2 rounded-lg" onClick={() => navigate(-1)}>Retour</button>
+            <div className="flex flex-row items-end gap-1 text-9xl">
+               <p className='origin-404-first rotate-[-25deg] w-max'>4</p>
+               <p className='text-orange -mx-8 w-max'>0</p>
+               <p className='origin-404-last rotate-[100deg] w-max'>4</p>
+            </div>
+               <p className="text-2xl">Oups... Il n'y a rien ici...</p>
+         </main> 
+      </>  
    );
 };
 

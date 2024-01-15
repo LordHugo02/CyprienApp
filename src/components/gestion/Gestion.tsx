@@ -48,7 +48,7 @@ const Gestion = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link className={linkClasses} to="/gestion/receipt">
+                            <Link className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
                                     <Icon className={iconLinkClasses} icon="material-symbols:input" />
                                     Entrées
@@ -56,7 +56,7 @@ const Gestion = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link className={linkClasses} to="/gestion/issues">
+                            <Link className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
                                     <Icon className={iconLinkClasses} icon="material-symbols:output" />
                                     Sorties
@@ -64,7 +64,7 @@ const Gestion = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link className={linkClasses} to="/gestion/families">
+                            <Link className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
                                     <Icon className={iconLinkClasses} icon="material-symbols:communities-outline" />
                                     Familles
@@ -72,7 +72,7 @@ const Gestion = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link className={linkClasses} to="/gestion/locations">
+                            <Link className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
                                     <Icon className={iconLinkClasses} icon="material-symbols:location-on-outline" />
                                     Rangements
@@ -80,7 +80,7 @@ const Gestion = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link className={linkClasses} to="/gestion/carrier">
+                            <Link className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
                                     <Icon className={iconLinkClasses} icon="material-symbols:local-shipping-outline-rounded" />
                                     Fournisseurs
