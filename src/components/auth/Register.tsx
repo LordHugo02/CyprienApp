@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Register   = () => {
-    return (
+  return (
         <div className="w-full h-full flex flex-col justify-around items-center relative z-20">
             <form className="nm-flat-white-sm rounded-lg p-8 flex flex-col items-stretch gap-5 group/form">
                 <h1 className="text-center font-title text-4xl">Inscription</h1>
@@ -46,7 +46,7 @@ const Register   = () => {
                 <p className="text-sm">Déjà inscrit ? <Link to="/auth" className="text-orange font-bold">Se connecter</Link></p>
             </form>
         </div>
-    );
+  );
 };
 
 export default Register ;

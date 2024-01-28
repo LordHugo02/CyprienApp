@@ -1,20 +1,20 @@
-import { useNavigate } from "react-router-dom";
-import Header from "./Header";
-import { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
+import Header from './Header';
+import { useEffect } from 'react';
 
 const NotFound = () => {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
-   useEffect(() => {
-      let main = document.querySelector('main') as HTMLElement
-      let header = document.querySelector('header') as HTMLElement
-      if (!header || !main) return;
+  useEffect(() => {
+    const main = document.querySelector('main') as HTMLElement;
+    const header = document.querySelector('header') as HTMLElement;
+    if (!header || !main) return;
 
-      main.style.height = "calc(100vh - "+header.getBoundingClientRect().height+"px)"
+    main.style.height = 'calc(100vh - ' + header.getBoundingClientRect().height + 'px)';
 
-   }, [])
+  }, []);
 
-   return (
+  return (
       <>
          <Header />
          <main id="" className="relative h-full w-full flex flex-col items-center justify-center text-blue">
@@ -27,7 +27,7 @@ const NotFound = () => {
                <p className="text-2xl">Oups... Il n'y a rien ici...</p>
          </main> 
       </>  
-   );
+  );
 };
 
 export default NotFound;

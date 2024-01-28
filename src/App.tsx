@@ -1,14 +1,16 @@
-import { Routes, Route } from 'react-router-dom';
+import React from 'react';
+import './App.css';
 import Home from './components/Home';
 import Auth from './components/auth/Auth';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import NotFound from './components/NotFound';
-import Gestion from './components/gestion/Gestion';
 import Stock from './components/gestion/Stock';
+import Gestion from './components/gestion/Gestion';
+import { Route, Routes } from 'react-router-dom';
 
-const App = () => {
- return (
+function App() {
+  return (
     <>
        <Routes>
           <Route path="/" element={<Home />} />
@@ -23,7 +25,7 @@ const App = () => {
           <Route path='*' element={<NotFound />}/>
        </Routes>
     </>
- );
-};
+  );
+}
 
 export default App;

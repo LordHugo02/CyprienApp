@@ -4,33 +4,33 @@ import { Icon } from '@iconify/react';
 
 const Gestion = () => {
 
-    const [asideOpen, setAsideState] = useState(true)
+  const [asideOpen, setAsideState] = useState(true);
 
-    const linkClasses = "inline-flex items-center gap-4 h-full w-full transition px-3 hover:bg-blue-dark"
-    const divLinkClasses = "flex flex-row gap-4"
-    const iconLinkClasses = "text-4xl"
-    const closedWidthAside = "w-16"
-    const baseWidthAside = "w-60"
-    const asideClasses = "bg-blue h-screen flex flex-col gap-3 text-white relative overflow-x-hidden transition-all duration-500 shrink-0 group-hover:w-10 "+baseWidthAside 
+  const linkClasses = 'inline-flex items-center gap-4 h-full w-full transition px-3 hover:bg-blue-dark';
+  const divLinkClasses = 'flex flex-row gap-4';
+  const iconLinkClasses = 'text-4xl';
+  const closedWidthAside = 'w-16';
+  const baseWidthAside = 'w-60';
+  const asideClasses = 'bg-blue h-screen flex flex-col gap-3 text-white relative overflow-x-hidden transition-all duration-500 shrink-0 group-hover:w-10 ' + baseWidthAside; 
 
-    const toggleAside = () => {
-        setAsideState(state => !state)
+  const toggleAside = () => {
+    setAsideState(state => !state);
+  };
+
+  useEffect(() => {
+    const aside = document.querySelector('aside') as HTMLElement;
+    const toggler = document.querySelector('#toggler') as HTMLElement;
+    if (!toggler || !aside) return;  
+    if (asideOpen) {
+      toggler.classList.replace('rotate-0', 'rotate-180');
+      aside.classList.replace(closedWidthAside, baseWidthAside);
+    } else {
+      toggler.classList.replace('rotate-180', 'rotate-0');
+      aside.classList.replace(baseWidthAside, closedWidthAside);
     }
+  }, [asideOpen]);
 
-    useEffect(() => {
-        let aside = document.querySelector('aside') as HTMLElement
-        let toggler = document.querySelector('#toggler') as HTMLElement
-        if(!toggler || !aside) return;  
-        if(asideOpen){
-            toggler.classList.replace("rotate-0", "rotate-180")
-            aside.classList.replace(closedWidthAside, baseWidthAside)
-        }else{
-            toggler.classList.replace("rotate-180", "rotate-0")
-            aside.classList.replace(baseWidthAside, closedWidthAside)
-        }
-    }, [asideOpen])
-
-    return (
+  return (
         <div className="h-screen w-screen">
             <div className="flex flex-row items-stretch w-screen h-screen overflow-hidden">
                 <aside id="menu" className={asideClasses}>
@@ -102,7 +102,7 @@ const Gestion = () => {
                 </main>
             </div>
         </div>
-    );
+  );
 };
 
 export default Gestion;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
-    return (
+  return (
         <div className="w-full h-full flex flex-col justify-around items-center relative z-20">
             <form className="nm-flat-white-sm rounded-lg p-8 flex flex-col items-stretch gap-5 group/form">
                 <h1 className="text-center font-title text-4xl">Connexion</h1>
@@ -24,7 +24,7 @@ const Login = () => {
                 <p className="text-sm">Pas encore inscrit ? <Link to="/auth/register" className="text-orange font-bold">Créer un compte</Link></p>
             </form>
         </div>
-    );
+  );
 };
 
 export default Login;
