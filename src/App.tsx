@@ -8,9 +8,6 @@ import Register from './components/auth/Register';
 import NotFound from './components/NotFound';
 import Stock from './components/gestion/Stock';
 import Gestion from './components/gestion/Gestion';
-import Stock from './components/gestion/Stock';
-import Api from './components/documentation/Api';
-import Documentation from './components/documentation/Documentation';
 
 function App() {
   return (
