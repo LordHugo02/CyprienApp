@@ -1,4 +1,6 @@
-export class Subscription {
+import { ICustomTable } from '../components/gestion/CustomTable';
+
+export default class Subscription {
   public id: number | undefined = 0;
 
   public name: string | undefined = '';
@@ -19,4 +21,10 @@ export class Subscription {
     this.trial = props.trial;
     this.can_subscribe = props.can_subscribe;
   }
+}
+export interface ISubscriptionProps extends ICustomTable {
+  lines: Subscription[]
+}
+export interface ISubscriptionLineProps extends ICustomTable {
+  line: Subscription
 }
