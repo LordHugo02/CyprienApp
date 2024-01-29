@@ -27,12 +27,12 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
       };
       console.log(temp.slug);
       
-      if (temp.slug == 'price') {
-        if (temp.content == '0')
+      if (temp.slug === 'price') {
+        if (temp.content === '0')
           temp.content = 'gratuit';
         else
           temp.content = (parseInt(temp.content, 10) / 100) + ' €';
-      } else if (temp.slug == 'rate') {
+      } else if (temp.slug === 'rate') {
         temp.content = (parseInt(temp.content, 10) / 100) + ' %';
       }
       tempTab.push(temp);
