@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 // import { Icon } from '@iconify/react';
-import { ChevronRight, Package, PackageMinus, PackagePlus } from 'lucide-react';
+import { ChevronRight, Component, Package, PackageMinus, PackagePlus, ReplaceAll, Table, Truck } from 'lucide-react';
 
 const Gestion = () => {
 
@@ -36,8 +36,7 @@ const Gestion = () => {
             <div className="flex flex-row items-stretch w-screen h-screen overflow-hidden">
                 <aside id="menu" className={asideClasses}>
                     <div className="w-60 absolute h-0"></div>
-                    <ChevronRight id="toggler" onClick={toggleAside} className='rotate-180 text-4xl text-bold absolute top-3 right-3 cursor-pointer transition-all duration-500' />
-                    {/* <Icon id="toggler" onClick={toggleAside} icon="material-symbols:chevron-right-rounded" className='rotate-180 text-4xl text-bold absolute top-3 right-3 cursor-pointer transition-all duration-500' /> */}
+                    <ChevronRight id="toggler" onClick={toggleAside} className='rotate-180 w-10 h-10 text-bold absolute top-3 right-3 cursor-pointer transition-all duration-500' />
                     <div className="h-32 bg-no-repeat bg-bottom bg-contain mt-3 mb-2 ml-1 mr-3 bg-logo"></div>
                     <hr className="mx-3"/>
                     <ul className="text-2xl flex flex-col py-3 items-stretch justify-start gap-2">
@@ -68,7 +67,7 @@ const Gestion = () => {
                         <li>
                             <Link className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
-                                    {/* <Icon className={iconLinkClasses} icon="material-symbols:communities-outline" /> */}
+                                    <Component className={iconLinkClasses} />
                                     Familles
                                 </div>
                             </Link>
@@ -76,7 +75,7 @@ const Gestion = () => {
                         <li>
                             <Link className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
-                                    {/* <Icon className={iconLinkClasses} icon="material-symbols:location-on-outline" /> */}
+                                    <ReplaceAll className={iconLinkClasses} />
                                     Rangements
                                 </div>
                             </Link>
@@ -84,7 +83,7 @@ const Gestion = () => {
                         <li>
                             <Link className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
-                                    {/* <Icon className={iconLinkClasses} icon="material-symbols:local-shipping-outline-rounded" /> */}
+                                    <Truck className={iconLinkClasses} />
                                     Fournisseurs
                                 </div>
                             </Link>
@@ -92,7 +91,7 @@ const Gestion = () => {
                         <li>
                             <Link className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
-                                    {/* <Icon className={iconLinkClasses} icon="material-symbols:description-outline-rounded" /> */}
+                                    <Table className={iconLinkClasses} />
                                     Usages
                                 </div>
                             </Link>
