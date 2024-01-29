@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { Icon } from '@iconify/react';
+import { Package } from 'lucide-react';
 
 const Gestion = () => {
 
@@ -42,7 +43,8 @@ const Gestion = () => {
                         <li>
                             <Link className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
-                                    <Icon className={iconLinkClasses} icon="material-symbols:inventory-2-outline-rounded" />
+                                    {/* <Icon className={iconLinkClasses} icon="material-symbols:inventory-2-outline-rounded" /> */}
+                                    <Package />
                                     Stock
                                 </div>
                             </Link>
