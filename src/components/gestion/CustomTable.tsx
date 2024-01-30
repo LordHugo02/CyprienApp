@@ -2,12 +2,13 @@ import React from 'react';
 import { ISubscriptionProps } from '../../entities/Subscription';
 import CustomTableLine from './CustomTableLine';
 import { IVatProps } from '../../entities/Vat';
+import { IFamilyProps } from '../../entities/Family';
 
 export interface ICustomTable {
   headers: object
 }
 
-const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps) => {
+const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps | IFamilyProps) => {
   return (
     <div className="h-screen w-screen relative">
       <table>
