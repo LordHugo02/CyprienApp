@@ -8,7 +8,7 @@ import Register from './components/auth/Register';
 import NotFound from './components/NotFound';
 import Stock from './components/gestion/Stock';
 import Gestion from './components/gestion/Gestion';
-
+import Family from './components/gestion/Family';
 function App() {
   return (
     <>
@@ -19,8 +19,13 @@ function App() {
             <Route path="register" element={<Register />} />
           </Route>
           <Route path="gestion" element={<Gestion />}>
-            <Route index element={<Stock />}/>
-            {/* <Route path="register" element={<Register />} /> */}
+            <Route path="stock" element={<Stock />}/>
+            <Route path="incomes" element={<Stock />}/>
+            <Route path="outcomes" element={<Stock />}/>
+            <Route path="locations" element={<Stock />}/>
+            <Route path="suppliers" element={<Stock />}/>
+            <Route path="uses" element={<Stock />}/>
+            <Route path="families" element={<Family />} />
           </Route>
           <Route path='*' element={<NotFound />}/>
        </Routes>
