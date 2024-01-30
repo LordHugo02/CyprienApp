@@ -18,10 +18,18 @@ const Stock = () => {
   }, []);
 
   return (
-    <div className="h-screen w-screen relative">
-        <CustomTable lines={lines} headers={headers}/>
-    </div>
+    // <div className="h-screen w-screen relative">
+    //     <CustomTable lines={lines} headers={headers}/>
+    // </div>
 
+    <div className="h-screen w-screen absolute top-0 left-0 bg-slate-100 flex items-center justify-around z-10">
+      <div className='h-64 w-64 relative' id="waitLoader">
+        <div className='w-full h-8 z-20 rounded-full outline outline-1 outline-black absolute top-half origin-center'></div>
+        <div className='w-full h-8 z-20 rounded-full outline outline-1 outline-black absolute top-half origin-center rotate-45'></div>
+        <div className='w-full h-8 z-20 rounded-full outline outline-1 outline-black absolute top-half origin-center rotate-90'></div>
+        <div className='w-full h-8 z-20 rounded-full outline outline-1 outline-black absolute top-half origin-center rotate-[135deg]'></div>
+      </div>
+    </div>
   );
 };
 

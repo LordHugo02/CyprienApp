@@ -1,0 +1,60 @@
+#waitLoader > div:after{
+  --animate-mode: cubic-bezier(.79,.14,.15,.86);
+  --color1: #55D5E0;
+  --color2: #335F8A;
+  --color3: #2F4558;
+  --color4: #F26619;
+  --color5: #F6B12D;
+
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--color1);
+  z-index: 30;
+  border-radius: 999px;
+}
+#waitLoader > div:nth-child(1):after{
+  animation: 1s var(--animate-mode) 0s infinite alternate slide, 2s linear 0s infinite color-change;
+}
+#waitLoader > div:nth-child(2):after{
+  animation: 1s var(--animate-mode) .25s infinite alternate slide, 2s linear .25s infinite color-change;
+}
+#waitLoader > div:nth-child(3):after{
+  animation: 1s var(--animate-mode) .5s infinite alternate slide, 2s linear .5s infinite color-change;
+}
+#waitLoader > div:nth-child(4):after{
+  animation: 1s var(--animate-mode) .75s infinite alternate slide, 2s linear .75s infinite color-change;
+}
+#waitLoader > div{
+  z-index: 20;
+}
+
+@keyframes slide {
+  0% {
+    left: 0;
+  }
+  100%{
+    left: calc(100% - 2rem);
+  }
+}
+@keyframes color-change {
+  0% {
+    background-color: var(--color1);
+  }
+  25%{
+    background-color: var(--color5);
+  }
+  50%{
+    background-color: var(--color2);
+  }
+  75%{
+    background-color: var(--color3);
+  }
+  100%{
+    background-color: var(--color1);
+  }
+}

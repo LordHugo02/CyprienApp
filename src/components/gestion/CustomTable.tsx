@@ -10,25 +10,22 @@ export interface ICustomTable {
 
 const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps | IFamilyProps) => {
   return (
-    <div className="h-screen w-screen relative">
-      <table>
-        <thead>
-          <tr>
-            {Object.entries(headers)
-              .map(
-                (header) => <th className='capitalize px-4 py-2' data-colslug={header[0]}>{header[1]}</th>,
-              )
-            }
-          </tr>
-        </thead>
-        <tbody>
-            {
-              lines.map((line: object) => <CustomTableLine line={line} headers={headers} />)
-            }
-        </tbody>
-      </table>
-    </div>
-
+    <table>
+      <thead>
+        <tr>
+          {Object.entries(headers)
+            .map(
+              (header) => <th className='capitalize px-4 py-2' data-colslug={header[0]}>{header[1]}</th>,
+            )
+          }
+        </tr>
+      </thead>
+      <tbody>
+          {
+            lines.map((line: object) => <CustomTableLine line={line} headers={headers} />)
+          }
+      </tbody>
+    </table>
   );
 };
 
