@@ -23,6 +23,7 @@
   },
   "scripts": {
     "start": "cls && react-scripts start",
+    "start-host": "cls && react-scripts start --host 0.0.0.0",
     "build": "cls && react-scripts build",
     "test": "cls && react-scripts test",
     "eject": "cls && react-scripts eject",
