@@ -15,7 +15,7 @@ const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps) => {
           <tr>
             {Object.entries(headers)
               .map(
-                (header, i) => <th className='capitalize px-4 py-2' data-nbColumn={i}>{header[1]}</th>,
+                (header) => <th className='capitalize px-4 py-2' data-colslug={header[0]}>{header[1]}</th>,
               )
             }
           </tr>

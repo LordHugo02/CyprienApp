@@ -8,6 +8,7 @@ const Stock = () => {
   const [lines, setLines] = useState<Vat[]>([]);
   
   useEffect(() => {
+    
     fetch('http://localhost:2810/api/product')
       .then(res => res.json())
       .then(
@@ -18,7 +19,6 @@ const Stock = () => {
 
   return (
     <div className="h-screen w-screen relative">
-        THIS IS LE  STOCK
         <CustomTable lines={lines} headers={headers}/>
     </div>
 

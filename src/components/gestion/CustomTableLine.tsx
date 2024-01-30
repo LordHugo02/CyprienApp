@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import { ISubscriptionLineProps } from '../../entities/Subscription';
-// import { IVatLineProps } from '../../entities/Vat';
 
 interface ILine {
   slug: string,
@@ -15,7 +13,7 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
   const [actualLine, setLine] = useState<ILine[]>([]);
   
   useEffect(() => {
-    const tempTab:ILine[] = [];
+    const tempTab: ILine[] = [];
     const refTab = Object.keys(headers);
     const baseLinekeys = Object.keys(line);
     const baseLinevalues = Object.values(line);
@@ -25,7 +23,6 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
         slug: ref,
         content: baseLinevalues[i],
       };
-      console.log(temp.slug);
       
       if (temp.slug === 'price') {
         if (temp.content === '0')
@@ -44,7 +41,7 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
     <tr>
       {Object.values(actualLine)
         .map(
-          (col) => <th className='capitalize px-4 py-2' data-nbColumn={col.slug}>{col.content}</th>,
+          (col) => <th className='capitalize px-4 py-2' data-colslug={col.slug}>{col.content}</th>,
         )
       }
     </tr>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 // import { Icon } from '@iconify/react';
 import { ChevronRight, Component, Package, PackageMinus, PackagePlus, ReplaceAll, Table, Truck } from 'lucide-react';
 
@@ -7,7 +7,7 @@ const Gestion = () => {
 
   const [asideOpen, setAsideState] = useState(true);
 
-  const linkClasses = 'inline-flex items-center gap-4 h-full w-full transition px-3 hover:bg-blue-dark';
+  const linkClasses = 'inline-flex items-center gap-4 h-full w-full transition px-3 py-2 hover:bg-blue-dark';
   const divLinkClasses = 'flex flex-row gap-4';
   const iconLinkClasses = 'w-10 h-10';
   const closedWidthAside = 'w-16';
@@ -41,65 +41,66 @@ const Gestion = () => {
                     <hr className="mx-3"/>
                     <ul className="text-2xl flex flex-col py-3 items-stretch justify-start gap-2">
                         <li>
-                            <Link className={linkClasses} to="/gestion">
+                            <NavLink className={isActive => linkClasses + (isActive ? " activeLink bg-white text-blue" : "") } to="/gestion">
                                 <div className={divLinkClasses}>
                                     <Package className={iconLinkClasses} />
                                     Stock
                                 </div>
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link className={linkClasses} to="/gestion">
+                            <NavLink className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
                                     <PackagePlus className={iconLinkClasses} />
                                     Entrées
                                 </div>
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link className={linkClasses} to="/gestion">
+                            <NavLink className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
                                     <PackageMinus className={iconLinkClasses} />
                                     Sorties
                                 </div>
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link className={linkClasses} to="/gestion">
+                            <NavLink className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
                                     <Component className={iconLinkClasses} />
                                     Familles
                                 </div>
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link className={linkClasses} to="/gestion">
+                            <NavLink className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
                                     <ReplaceAll className={iconLinkClasses} />
                                     Rangements
                                 </div>
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link className={linkClasses} to="/gestion">
+                            <NavLink className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
                                     <Truck className={iconLinkClasses} />
                                     Fournisseurs
                                 </div>
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
-                            <Link className={linkClasses} to="/gestion">
+                            <NavLink className={linkClasses} to="/gestion">
                                 <div className={divLinkClasses}>
                                     <Table className={iconLinkClasses} />
                                     Usages
                                 </div>
-                            </Link>
+                            </NavLink>
                         </li>
                     </ul>
                 </aside>
-                <main className="w-aside-close h-screen transition-all duration-500">
-                    <Outlet />
+                <main className="w-aside-close h-screen transition-all duration-500 overflow-scroll">
+                    <h2 className='text-3xl text-center'>Stock</h2>
+                    <Outlet/>
                 </main>
             </div>
         </div>
