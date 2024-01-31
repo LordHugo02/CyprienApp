@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 // import { Icon } from '@iconify/react';
 import { ChevronRight, Component, Package, PackageMinus, PackagePlus, ReplaceAll, Table, Truck } from 'lucide-react';
+import Loading from '../Loading';
 
 const Gestion = () => {
 

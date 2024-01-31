@@ -40,7 +40,7 @@ const Register   = () => {
                     <input required className="px-4 py-2 nm-inset-white appearance-none border rounded" id="passwordConfirmation" type="password" placeholder="******************"/>
                 </div>
                 </div>
-                <Link className="text-center px-4 py-2 rounded nm-flat-slate-200-sm text-black group-valid/form:nm-flat-blue-base-sm group-valid/form:text-white transition-all duration-500" to="/gestion">
+                <Link className="text-center px-4 py-2 rounded nm-flat-slate-200-sm text-black group-valid/form:nm-flat-blue-base-sm group-valid/form:text-white transition-all duration-500" to="/gestion/stock">
                 Inscription
                 </Link>
                 <p className="text-sm">Déjà inscrit ? <Link to="/auth" className="text-orange font-bold">Se connecter</Link></p>
