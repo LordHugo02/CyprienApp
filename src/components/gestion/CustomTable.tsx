@@ -3,12 +3,13 @@ import { ISubscriptionProps } from '../../entities/Subscription';
 import CustomTableLine from './CustomTableLine';
 import { IVatProps } from '../../entities/Vat';
 import { IFamilyProps } from '../../entities/Family';
+import { IStorageProps } from '../../entities/Storage';
 
 export interface ICustomTable {
   headers: object
 }
 
-const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps | IFamilyProps) => {
+const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps | IFamilyProps | IStorageProps) => {
   return (
     <table>
       <thead>

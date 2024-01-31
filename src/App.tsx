@@ -9,6 +9,7 @@ import NotFound from './components/NotFound';
 // import Stock from './components/gestion/Stock';
 // import Gestion from './components/gestion/Gestion';
 import Loading from './components/Loading';
+import StorageComponent from './components/gestion/Storage';
 // import Family from './components/gestion/Family';
 
 const Family = React.lazy(() => import('./components/gestion/Family'));
@@ -65,9 +66,9 @@ function App() {
                 <Stock />
               </React.Suspense>
             } />
-            <Route path="locations" element={
+            <Route path="storages" element={
               <React.Suspense fallback={<Loading />}>
-                <Stock />
+                <StorageComponent />
               </React.Suspense>
             } />
             <Route path="suppliers" element={

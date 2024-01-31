@@ -73,7 +73,7 @@ const Gestion = () => {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink className={linkClasses} to="/gestion/locations" end>
+                            <NavLink className={linkClasses} to="/gestion/storages" end>
                                 <div className={divLinkClasses}>
                                     <ReplaceAll className={iconLinkClasses} />
                                     Rangements
