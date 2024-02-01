@@ -1,16 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-// import Home from './components/Home';
-// import Auth from './components/auth/Auth';
-// import Login from './components/auth/Login';
-// import Register from './components/auth/Register';
 import NotFound from './components/NotFound';
-// import Stock from './components/gestion/Stock';
-// import Gestion from './components/gestion/Gestion';
 import Loading from './components/Loading';
 import StorageComponent from './components/gestion/Storage';
-// import Family from './components/gestion/Family';
 
 const Family = React.lazy(() => import('./components/gestion/Family'));
 const Home = React.lazy(() => import('./components/Home'));
@@ -19,6 +12,7 @@ const Login = React.lazy(() => import('./components/auth/Login'));
 const Register = React.lazy(() => import('./components/auth/Register'));
 const Stock = React.lazy(() => import('./components/gestion/Stock'));
 const Gestion = React.lazy(() => import('./components/gestion/Gestion'));
+const IncomeComponent = React.lazy(() => import('./components/gestion/Income'));
 
 
 function App() {
@@ -58,7 +52,7 @@ function App() {
             } />
             <Route path="incomes" element={
               <React.Suspense fallback={<Loading />}>
-                <Stock />
+                <IncomeComponent />
               </React.Suspense>
             } />
             <Route path="outcomes" element={

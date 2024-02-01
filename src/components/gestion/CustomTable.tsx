@@ -3,14 +3,15 @@ import { ISubscriptionProps } from '../../entities/Subscription';
 import CustomTableLine from './CustomTableLine';
 import { IVatProps } from '../../entities/Vat';
 import { IFamilyProps } from '../../entities/Family';
-import Storage, { IStorageProps } from '../../entities/Storage';
+import { IStorageProps } from '../../entities/Storage';
 import { ISupplierProps } from '../../entities/Supplier';
+import { IIncomeProps } from '../../entities/Income';
 
 export interface ICustomTable {
   headers: object
 }
 
-const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps | IFamilyProps | IStorageProps | ISupplierProps) => {
+const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps | IFamilyProps | IStorageProps | ISupplierProps | IIncomeProps) => {
   const [sortRatio, setRatio] = useState(1);
   
   const rmSort = (target: HTMLElement) => {
@@ -52,7 +53,7 @@ const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps | IFamil
         <tr>
           {Object.entries(headers)
             .map(
-              (header) => <th className='cursor-pointer py-2 px-2 capitalize sortable relative' onClick={(event) => handlesortCol(event, header[0])}>{header[1]}</th>,
+              (header) => <th className='cursor-pointer py-2 px-2 pr-10 capitalize sortable relative' onClick={(event) => handlesortCol(event, header[0])}>{header[1]}</th>,
             )
           }
         </tr>
