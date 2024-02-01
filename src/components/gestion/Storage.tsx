@@ -18,7 +18,7 @@ const StorageComponent = () => {
   }, []);
 
   return (
-    <div className="h-screen w-screen relative">
+    <div className="h-screen w-full relative">
         <CustomTable lines={lines} headers={headers}/>
     </div>
   );

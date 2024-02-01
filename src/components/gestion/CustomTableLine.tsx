@@ -38,10 +38,10 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
   }, []);
 
   return (
-    <tr>
+    <tr className='bg-slate-100 even:bg-slate-200 relative cursor-default productTable'>
       {Object.values(actualLine)
         .map(
-          (col) => <th className='capitalize px-4 py-2' data-colslug={col.slug}>{col.content}</th>,
+          (col) => <td className='p-2 min-w-28 max-w-xl w-max'>{col.content}</td>,
         )
       }
     </tr>

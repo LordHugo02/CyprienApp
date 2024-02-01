@@ -58,3 +58,28 @@
     background-color: var(--color1);
   }
 }
+
+.sortable:before,
+.sortable:after{
+  content: "";
+  display: inline-block;
+  height : 0;
+  width : 0;
+  border-right : .75rem solid transparent;
+  border-bottom : .75rem solid rgb(200,200,200);
+  border-left : .75rem solid transparent;
+
+  position:absolute;
+  right: .5rem;
+  top: .5rem;
+}
+.sortable:after{
+  top: 1.5rem;
+  transform: rotate(180deg);
+}
+.sortable.asc:after{
+  border-bottom-color: #335F8A;
+}
+.sortable.desc:before{
+  border-bottom-color: #335F8A;
+}
