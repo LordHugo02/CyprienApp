@@ -6,12 +6,13 @@ import { IFamilyProps } from '../../entities/Family';
 import { IStorageProps } from '../../entities/Storage';
 import { ISupplierProps } from '../../entities/Supplier';
 import { IIncomeProps } from '../../entities/Income';
+import { IOutcomeProps } from '../../entities/Outcome';
 
 export interface ICustomTable {
   headers: object
 }
 
-const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps | IFamilyProps | IStorageProps | ISupplierProps | IIncomeProps) => {
+const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps | IFamilyProps | IStorageProps | ISupplierProps | IIncomeProps | IOutcomeProps) => {
   const [sortRatio, setRatio] = useState(1);
   
   const rmSort = (target: HTMLElement) => {

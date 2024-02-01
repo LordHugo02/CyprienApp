@@ -13,6 +13,7 @@ const Register = React.lazy(() => import('./components/auth/Register'));
 const Stock = React.lazy(() => import('./components/gestion/Stock'));
 const Gestion = React.lazy(() => import('./components/gestion/Gestion'));
 const IncomeComponent = React.lazy(() => import('./components/gestion/Income'));
+const OutcomeComponent = React.lazy(() => import('./components/gestion/Outcome'));
 
 
 function App() {
@@ -57,7 +58,7 @@ function App() {
             } />
             <Route path="outcomes" element={
               <React.Suspense fallback={<Loading />}>
-                <Stock />
+                <OutcomeComponent />
               </React.Suspense>
             } />
             <Route path="storages" element={
