@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { ISubscriptionProps } from '../../entities/Subscription';
+import React, { useEffect, useState } from 'react';
 import CustomTableLine from './CustomTableLine';
+import { IStorageProps } from '../../entities/Storage';
 import { IVatProps } from '../../entities/Vat';
 import { IFamilyProps } from '../../entities/Family';
-import { IStorageProps } from '../../entities/Storage';
 import { ISupplierProps } from '../../entities/Supplier';
 import { IIncomeProps } from '../../entities/Income';
 import { IOutcomeProps } from '../../entities/Outcome';
@@ -13,8 +12,9 @@ export interface ICustomTable {
   headers: object
 }
 
-const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps | IFamilyProps | IStorageProps | ISupplierProps | IIncomeProps | IOutcomeProps | IUseProps) => {
+const CustomTable = ({ lines, headers }: IVatProps | IFamilyProps | IStorageProps | ISupplierProps | IIncomeProps | IOutcomeProps | IUseProps) => {
   const [sortRatio, setRatio] = useState(1);
+  const [sortedLines, setLines] = useState<any[]>([])
   
   const rmSort = (target: HTMLElement) => {
     const ths = document.querySelectorAll('th');
@@ -47,7 +47,17 @@ const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps | IFamil
     a[slug as keyof typeof a]! === b[slug as keyof typeof b]! ? 0 : 
       a[slug as keyof typeof a]! > b[slug as keyof typeof b]! ? 1 : -1,
     )
+    setLines(lines);
   }
+
+  useEffect(() => {
+    console.log(lines);
+    
+    // if(lines)
+      // setLines(lines);
+
+    console.log(sortedLines);
+  }, [])
 
   return (
     <table className='w-max min-w-full overflow-x-scroll z-10 relative'>
@@ -62,7 +72,7 @@ const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps | IFamil
       </thead>
       <tbody>
           {
-            lines.map((line: object) => <CustomTableLine line={line} headers={headers} />)
+            sortedLines.map((line: object) => <CustomTableLine line={line} headers={headers} />)
           }
       </tbody>
     </table>

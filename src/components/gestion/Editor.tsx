@@ -42,7 +42,6 @@ const Editor = () => {
 
     if(theClass){
       setClass(theClass);
-      console.log(theClass.headers);
     }  
   }, [editorType])
 
