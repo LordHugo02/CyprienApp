@@ -3,13 +3,13 @@ import CustomTable from './CustomTable';
 import { Family } from '../../entities';
 import { headers } from '../../entities/Family';
 
-const Stock = () => {
+const Stock = ({ api_url = 'http://localhost' }: any) => {
 
   const [lines, setLines] = useState<Family[]>([]);
   
   useEffect(() => {
     
-    fetch('http://localhost:2810/api/family')
+    fetch(`${api_url}:2810/api/family`)
       .then(res => res.json())
       .then(
         (result) => setLines(result.map((item:object) => new Family(item))),

@@ -3,13 +3,13 @@ import CustomTable from './CustomTable';
 import { Product, Vat } from '../../entities';
 import { headers } from '../../entities/Product';
 
-const Stock = () => {
+const Stock = ({ api_url = 'http://localhost' }: any) => {
 
   const [lines, setLines] = useState<Vat[]>([]);
   
   useEffect(() => {
-    
-    fetch('http://localhost:2810/api/product')
+
+    fetch(`${api_url}:2810/api/product`)
       .then(res => res.json())
       .then(
         (result) => setLines(result.map((item:object) => new Product(item))),

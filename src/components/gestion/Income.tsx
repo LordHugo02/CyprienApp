@@ -3,13 +3,13 @@ import CustomTable from './CustomTable';
 import { Income } from '../../entities';
 import { headers } from '../../entities/Income';
 
-const IncomeComponent = () => {
+const IncomeComponent = ({ api_url = 'http://localhost' }: any) => {
 
   const [lines, setLines] = useState<Income[]>([]);
   
   useEffect(() => {
     
-    fetch('http://localhost:2810/api/income')
+    fetch(`${api_url}:2810/api/income`)
       .then(res => res.json())
       .then(
         (result) => setLines(result.map((item:object) => new Income(item))),

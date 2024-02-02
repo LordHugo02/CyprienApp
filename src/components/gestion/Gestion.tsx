@@ -14,7 +14,7 @@ const Gestion = () => {
   const baseWidthAside = 'w-60';
   const asideClasses = 'bg-blue h-screen flex flex-col gap-3 text-white relative overflow-x-hidden transition-all duration-500 shrink-0 group-hover:w-10 ' + baseWidthAside; 
 
-  const toggleAside = () => {
+  const toggleAside = ({ api_url = 'http://localhost' }: any) => {
     setAsideState(state => !state);
   };
 

@@ -3,13 +3,13 @@ import CustomTable from './CustomTable';
 import { Storage } from '../../entities';
 import { headers } from '../../entities/Storage';
 
-const StorageComponent = () => {
+const StorageComponent = ({ api_url = 'http://localhost' }: any) => {
 
   const [lines, setLines] = useState<Storage[]>([]);
   
   useEffect(() => {
     
-    fetch('http://localhost:2810/api/storage')
+    fetch(`${api_url}:2810/api/storage`)
       .then(res => res.json())
       .then(
         (result) => setLines(result.map((item:object) => new Storage(item))),

@@ -747,12 +747,12 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.cursor-pointer {
-  cursor: pointer;
-}
-
 .cursor-default {
   cursor: default;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .appearance-none {
@@ -875,12 +875,17 @@ video {
   background-repeat: no-repeat;
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
 .p-8 {
   padding: 2rem;
 }
 
-.p-2 {
-  padding: 0.5rem;
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .px-3 {
@@ -901,11 +906,6 @@ video {
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 
 .pr-10 {
