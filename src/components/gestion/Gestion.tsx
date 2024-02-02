@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-// import { Icon } from '@iconify/react';
 import { ChevronRight, Component, Package, PackageMinus, PackagePlus, ReplaceAll, Table, Truck } from 'lucide-react';
-import Loading from '../Loading';
+import { EditorContext } from '../../contexts';
+import { EEditorType } from '../../contexts/EditorContext';
 
 const Gestion = () => {
 
   const [asideOpen, setAsideState] = useState(true);
+  
+  const [editorType, setType] = useState(EEditorType.PRODUCT);
+  const value = { editorType, setType };
+
   const linkClasses = 'inline-flex items-center gap-4 h-full w-full transition px-3 py-2 hover:bg-blue-dark hover:text-white aria-[current=page]:bg-white aria-[current=page]:text-blue aria-[current=page]:rounded-l-full';
   const divLinkClasses = 'flex flex-row gap-4';
   const iconLinkClasses = 'w-10 h-10';
@@ -14,9 +18,10 @@ const Gestion = () => {
   const baseWidthAside = 'w-60';
   const asideClasses = 'bg-blue h-screen flex flex-col gap-3 text-white relative overflow-x-hidden transition-all duration-500 shrink-0 group-hover:w-10 ' + baseWidthAside; 
 
-  const toggleAside = ({ api_url = 'http://localhost' }: any) => {
+  const toggleAside = () => {
     setAsideState(state => !state);
   };
+
 
   useEffect(() => {
     const aside = document.querySelector('aside') as HTMLElement;
@@ -99,7 +104,10 @@ const Gestion = () => {
                     </ul>
                 </aside>
                 <main className="w-aside-close h-screen transition-all duration-500 overflow-scroll">
-                    <Outlet/>
+                    <EditorContext.Provider value={value}>
+                        <h1>{editorType}</h1>
+                        <Outlet />
+                    </EditorContext.Provider>
                 </main>
             </div>
         </div>

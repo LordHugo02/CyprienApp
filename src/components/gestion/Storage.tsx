@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import CustomTable from './CustomTable';
 import { Storage } from '../../entities';
 import { headers } from '../../entities/Storage';
+import { EditorContext } from '../../contexts';
+import { EEditorType } from '../../contexts/EditorContext';
 
 const StorageComponent = ({ api_url = 'http://localhost' }: any) => {
 
   const [lines, setLines] = useState<Storage[]>([]);
+  const { setType } = useContext(EditorContext);
   
   useEffect(() => {
+    setType(EEditorType.STORAGE);
     
     fetch(`${api_url}:2810/api/storage`)
       .then(res => res.json())
