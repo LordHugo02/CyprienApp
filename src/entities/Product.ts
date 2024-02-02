@@ -58,6 +58,9 @@ export default class Product {
     this.vat = props.vat;
     
   }
+
+  public headers = headers;
+
 }
 export interface IProductProps extends ICustomTable {
   lines: Product[]

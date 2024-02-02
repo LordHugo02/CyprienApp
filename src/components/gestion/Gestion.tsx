@@ -3,6 +3,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { ChevronRight, Component, Package, PackageMinus, PackagePlus, ReplaceAll, Table, Truck } from 'lucide-react';
 import { EditorContext } from '../../contexts';
 import { EEditorType } from '../../contexts/EditorContext';
+import Editor from './Editor';
 
 const Gestion = () => {
 
@@ -105,7 +106,7 @@ const Gestion = () => {
                 </aside>
                 <main className="w-aside-close h-screen transition-all duration-500 overflow-scroll">
                     <EditorContext.Provider value={value}>
-                        <h1>{editorType}</h1>
+                        <Editor />
                         <Outlet />
                     </EditorContext.Provider>
                 </main>

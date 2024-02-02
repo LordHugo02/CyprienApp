@@ -40,6 +40,9 @@ export default class Supplier {
     this.website = props.website;
     this.company = props.company;
   }
+
+  public headers = headers;
+
 }
 export interface ISupplierProps extends ICustomTable {
   lines: Supplier[]

@@ -16,6 +16,9 @@ export default class Storage {
     this.description = props.description;
     this.company = props.company;
   }
+
+  public headers = headers;
+
 }
 export interface IStorageProps extends ICustomTable {
   lines: Storage[]

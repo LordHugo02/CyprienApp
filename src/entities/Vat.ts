@@ -13,6 +13,9 @@ export default class Vat {
     this.name = props.name;
     this.rate = props.rate;
   }
+
+  public headers = headers;
+
 }
 export interface IVatProps extends ICustomTable {
   lines: Vat[]
@@ -20,3 +23,8 @@ export interface IVatProps extends ICustomTable {
 export interface IVatLineProps extends ICustomTable {
   line: Vat
 }
+
+export const headers = {
+  'name': 'nom',
+  'rate': 'taux',
+};

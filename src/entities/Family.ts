@@ -16,6 +16,8 @@ export default class Family {
     this.description = props.description;
     this.company = props.company;
   }
+
+  public headers = headers;
 }
 export interface IFamilyProps extends ICustomTable {
   lines: Family[]

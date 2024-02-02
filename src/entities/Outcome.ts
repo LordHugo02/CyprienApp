@@ -27,6 +27,9 @@ export default class Outcome {
     this.quantity = props.quantity;
     this.itemPrice = props.itemPrice;    
   }
+
+  public headers = headers;
+
 }
 export interface IOutcomeProps extends ICustomTable {
   lines: Outcome[]

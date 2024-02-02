@@ -26,6 +26,9 @@ export default class Income {
     this.quantity = props.quantity;
     this.itemPrice = props.itemPrice;
   }
+
+  public headers = headers;
+
 }
 export interface IIncomeProps extends ICustomTable {
   lines: Income[]
