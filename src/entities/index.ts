@@ -5,6 +5,8 @@ import Family from './Family';
 import Storage from './Storage';
 import Income from './Income';
 import Outcome from './Outcome';
+import Use from './Use';
+import Supplier from './Supplier';
 
 export {
   Subscription,
@@ -14,4 +16,6 @@ export {
   Storage,
   Income,
   Outcome,
+  Supplier,
+  Use,
 };

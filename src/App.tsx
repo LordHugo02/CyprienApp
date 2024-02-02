@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import NotFound from './components/NotFound';
 import Loading from './components/Loading';
-import StorageComponent from './components/gestion/Storage';
 
 const Family = React.lazy(() => import('./components/gestion/Family'));
 const Home = React.lazy(() => import('./components/Home'));
@@ -14,6 +13,9 @@ const Stock = React.lazy(() => import('./components/gestion/Stock'));
 const Gestion = React.lazy(() => import('./components/gestion/Gestion'));
 const IncomeComponent = React.lazy(() => import('./components/gestion/Income'));
 const OutcomeComponent = React.lazy(() => import('./components/gestion/Outcome'));
+const SupplierComponent = React.lazy(() => import('./components/gestion/Supplier'));
+const UseComponent = React.lazy(() => import('./components/gestion/Use'));
+const StorageComponent = React.lazy(() => import('./components/gestion/Storage'));
 
 
 function App() {
@@ -68,12 +70,12 @@ function App() {
             } />
             <Route path="suppliers" element={
               <React.Suspense fallback={<Loading />}>
-                <Stock />
+                <SupplierComponent />
               </React.Suspense>
             } />
             <Route path="uses" element={
               <React.Suspense fallback={<Loading />}>
-                <Stock />
+                <UseComponent />
               </React.Suspense>
             } />
             <Route path="families" element={

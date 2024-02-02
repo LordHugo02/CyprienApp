@@ -7,12 +7,13 @@ import { IStorageProps } from '../../entities/Storage';
 import { ISupplierProps } from '../../entities/Supplier';
 import { IIncomeProps } from '../../entities/Income';
 import { IOutcomeProps } from '../../entities/Outcome';
+import { IUseProps } from '../../entities/Use';
 
 export interface ICustomTable {
   headers: object
 }
 
-const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps | IFamilyProps | IStorageProps | ISupplierProps | IIncomeProps | IOutcomeProps) => {
+const CustomTable = ({ lines, headers }: ISubscriptionProps | IVatProps | IFamilyProps | IStorageProps | ISupplierProps | IIncomeProps | IOutcomeProps | IUseProps) => {
   const [sortRatio, setRatio] = useState(1);
   
   const rmSort = (target: HTMLElement) => {
