@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import CustomTable from './CustomTable';
-import { Storage } from '../../entities';
-import { headers } from '../../entities/Storage';
+import { Supplier } from '../../entities';
+import { headers } from '../../entities/Supplier';
 
-const StorageComponent = ({ api_url = 'http://localhost' }: any) => {
+const SupplierComponent = ({ api_url = 'http://localhost' }: any) => {
 
-  const [lines, setLines] = useState<Storage[]>([]);
+  const [lines, setLines] = useState<Supplier[]>([]);
   
   useEffect(() => {
-    
-    fetch(`${api_url}:2810/api/storage`)
+    fetch(`${api_url}:2810/api/supplier`)
       .then(res => res.json())
       .then(
-        (result) => setLines(result.map((item:object) => new Storage(item))),
+        (result) => setLines(result.map((item:object) => new Supplier(item))),
         (error) => console.log('== ERROR ====', error),
       );
   }, []);
@@ -24,4 +23,4 @@ const StorageComponent = ({ api_url = 'http://localhost' }: any) => {
   );
 };
 
-export default StorageComponent;
+export default SupplierComponent;
