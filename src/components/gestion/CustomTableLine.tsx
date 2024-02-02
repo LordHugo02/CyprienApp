@@ -12,7 +12,7 @@ interface IBaseLine {
 const CustomTableLine = ({ line, headers }: IBaseLine) => {
   const [actualLine, setLine] = useState<ILine[]>([]);
   
-  useEffect(() => {
+  const handleLineChanges = () => {
     const tempTab: ILine[] = [];
     const refTab = Object.keys(headers);
     const baseLinekeys = Object.keys(line);
@@ -35,7 +35,14 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
       tempTab.push(temp);
     });
     setLine(tempTab);
+  }
+
+  useEffect(() => {
+    handleLineChanges()
   }, []);
+  useEffect(() => {
+    handleLineChanges()
+  }, [line]);
 
   return (
     <tr className='bg-slate-100 even:bg-slate-200 relative cursor-default productTable'>

@@ -14,7 +14,7 @@ export interface ICustomTable {
 
 const CustomTable = ({ lines, headers }: IVatProps | IFamilyProps | IStorageProps | ISupplierProps | IIncomeProps | IOutcomeProps | IUseProps) => {
   const [sortRatio, setRatio] = useState(1);
-  const [sortedLines, setLines] = useState<any[]>([])
+  const [sortedLines, setLines] = useState<any[]>(lines)
   
   const rmSort = (target: HTMLElement) => {
     const ths = document.querySelectorAll('th');
@@ -27,11 +27,9 @@ const CustomTable = ({ lines, headers }: IVatProps | IFamilyProps | IStorageProp
 
   const handlesortCol = (ev: any|null, slug: string, ratio: number = 1) => {
     if(ev){
-      console.log('event OK');
-      
       const target = ev.target as HTMLElement;
       rmSort(target);
-      if(target.classList.contains('asc') || target.classList.contains('desc')) setRatio((ratio) => ratio * -1)
+      if(target.classList.contains('asc') || target.classList.contains('desc')) setRatio((ratio) => ratio *= -1)
       else setRatio(1);
       
       if(sortRatio === 1){
@@ -42,22 +40,18 @@ const CustomTable = ({ lines, headers }: IVatProps | IFamilyProps | IStorageProp
         else target.classList.add('desc')
       }
     }
-    
-    lines.sort((a, b) =>
-    a[slug as keyof typeof a]! === b[slug as keyof typeof b]! ? 0 : 
-      a[slug as keyof typeof a]! > b[slug as keyof typeof b]! ? 1 : -1,
+    let temp = JSON.parse(JSON.stringify(sortedLines));
+    temp.sort((a: any, b: any) => {
+      return a[slug as keyof typeof a]! === b[slug as keyof typeof b]! ? 0 : 
+        a[slug as keyof typeof a]! > b[slug as keyof typeof b]! ? 1 * sortRatio : -1 * sortRatio
+    },
     )
-    setLines(lines);
+    setLines(temp);
   }
 
   useEffect(() => {
-    console.log(lines);
-    
-    // if(lines)
-      // setLines(lines);
-
-    console.log(sortedLines);
-  }, [])
+    setLines(lines);
+  }, [lines])
 
   return (
     <table className='w-max min-w-full overflow-x-scroll z-10 relative'>

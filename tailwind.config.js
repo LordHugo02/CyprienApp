@@ -80,9 +80,6 @@ module.exports = {
       height:{
         'screen': "100vh"
       },
-      minWidth: {
-        '1/2': '50%',
-      },
       minHeight: {
         '0': '0.125rem',
         '1': '0.25rem',
@@ -119,13 +116,11 @@ module.exports = {
         '96': '24rem'
       },
       minWidth: {
+        '1/2': '50%',
         '0': '0.125rem',
         '1': '0.25rem',
-        '1': '0.375rem',
         '2': '0.5rem',
-        '2': '0.625rem',
         '3': '0.75rem',
-        '3': '0.875rem',
         '4': '1rem',
         '5': '1.25rem',
         '6': '1.5rem',
@@ -162,6 +157,11 @@ module.exports = {
       transformOrigin:{
         '404-first': '62% 100%',
         '404-last': '62% 71%',
+      },
+      screens: {
+        '3xl': '2048px',
+        '4xl': '3000px',
+        '5xl': '4096px'
       }
     }
   },

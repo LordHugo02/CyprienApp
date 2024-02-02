@@ -47,9 +47,9 @@ const Editor = () => {
 
   return (
     <div className='w-full h-max'>
-      <form className='flex flex-wrap justify-between gap-y-2 bg-slate-400 w-full h-max p-4 pb-20' action="">
+      <form className='flex flex-wrap justify-between gap-2 bg-slate-400 w-full h-max p-4 pb-20' action="">
         
-        { actualClass && Object.entries(actualClass.headers).map((item) => <input className='w-6/20 rounded-lg p-2' type="text" placeholder={item[1]} name={item[1]} id={item[0]}/>) }
+        { actualClass && Object.entries(actualClass.headers).map((item) => <input className='w-9/20 2xl:w-6/20 3xl:w-4/20 4xl:w-3/20 rounded-lg p-2' type="text" placeholder={item[1]} name={item[1]} id={item[0]}/>) }
       </form>
     </div>
   );

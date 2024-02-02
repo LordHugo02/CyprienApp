@@ -77,9 +77,9 @@
   top: 1.5rem;
   transform: rotate(180deg);
 }
-.sortable.asc:after{
+.sortable.desc:after{
   border-bottom-color: #335F8A;
 }
-.sortable.desc:before{
+.sortable.asc:before{
   border-bottom-color: #335F8A;
 }
