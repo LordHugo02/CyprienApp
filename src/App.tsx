@@ -3,8 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import NotFound from './components/NotFound';
 import Loading from './components/Loading';
-
-const Home = React.lazy(() => import('./components/Home'));
+import Home from './components/Home';
+  
 const Auth = React.lazy(() => import('./components/auth/Auth'));
 const Login = React.lazy(() => import('./components/auth/Login'));
 const Register = React.lazy(() => import('./components/auth/Register'));
@@ -22,11 +22,7 @@ function App() {
   return (
     <>
        <Routes>
-          <Route path="/" element={
-              <React.Suspense fallback={<Loading />}>
-                <Home />
-              </React.Suspense>
-            } />
+          <Route path="/" element={<Home />} />
           <Route path="auth" element={
               <React.Suspense fallback={<Loading />}>
                 <Auth />
