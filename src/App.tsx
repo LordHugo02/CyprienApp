@@ -4,7 +4,6 @@ import './App.css';
 import NotFound from './components/NotFound';
 import Loading from './components/Loading';
 
-const Family = React.lazy(() => import('./components/gestion/Family'));
 const Home = React.lazy(() => import('./components/Home'));
 const Auth = React.lazy(() => import('./components/auth/Auth'));
 const Login = React.lazy(() => import('./components/auth/Login'));
@@ -16,6 +15,7 @@ const OutcomeComponent = React.lazy(() => import('./components/gestion/Outcome')
 const SupplierComponent = React.lazy(() => import('./components/gestion/Supplier'));
 const UseComponent = React.lazy(() => import('./components/gestion/Use'));
 const StorageComponent = React.lazy(() => import('./components/gestion/Storage'));
+const FamilyComponent = React.lazy(() => import('./components/gestion/Family'));
 
 
 function App() {
@@ -80,7 +80,7 @@ function App() {
             } />
             <Route path="families" element={
               <React.Suspense fallback={<Loading />}>
-                <Family />
+                <FamilyComponent />
               </React.Suspense>
             } />
             </Route>
