@@ -39,10 +39,10 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
 
   useEffect(() => {
     handleLineChanges()
-  }, []);
+  }, );
   useEffect(() => {
     handleLineChanges()
-  }, [line]);
+  }, [line, ]);
 
   return (
     <tr className='bg-slate-100 even:bg-slate-200 relative cursor-default productTable'>

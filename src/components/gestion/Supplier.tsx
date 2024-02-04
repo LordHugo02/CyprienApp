@@ -18,7 +18,7 @@ const SupplierComponent = () => {
         (result) => setLines(result.map((item:object) => new Supplier(item))),
         (error) => console.log('== ERROR ====', error),
       );
-  }, []);
+  }, );
 
   return (
     <div className="h-full w-full relative">

@@ -19,7 +19,7 @@ const StorageComponent = () => {
         (result) => setLines(result.map((item:object) => new Storage(item))),
         (error) => console.log('== ERROR ====', error),
       );
-  }, []);
+  }, );
 
   return (
     <div className="h-screen w-full relative">

@@ -19,7 +19,7 @@ const IncomeComponent = () => {
         (result) => setLines(result.map((item:object) => new Income(item))),
         (error) => console.log('== ERROR ====', error),
       );
-  }, []);
+  }, );
 
   return (
     <div className="h-full w-full relative">
