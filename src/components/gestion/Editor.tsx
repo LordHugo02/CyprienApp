@@ -11,28 +11,28 @@ const Editor = () => {
   useEffect(() => {
     let theClass = undefined;
     switch (editorType) {
-      case 0:
+      case EEditorType.FAMILY:
         theClass = new Family({});
         break;
-      case 1:
+      case EEditorType.INCOME:
         theClass = new Income({});
         break;
-      case 2:
+      case EEditorType.OUTCOME:
         theClass = new Outcome({});
         break;
-      case 3:
+      case EEditorType.PRODUCT:
         theClass = new Product({});
         break;
-      case 4:
+      case EEditorType.STORAGE:
         theClass = new Storage({});
         break;
-      case 5:
+      case EEditorType.SUPPLIER:
         theClass = new Supplier({});
         break;
-      case 6:
+      case EEditorType.USE:
         theClass = new Use({});
         break;
-      case 7:
+      case EEditorType.VAT:
         theClass = new Vat({});
         break;
         
@@ -48,8 +48,7 @@ const Editor = () => {
   return (
     <div className='w-full h-max'>
       <form className='flex flex-wrap justify-between gap-2 bg-slate-400 w-full h-max p-4 pb-20' action="">
-        
-        { actualClass && Object.entries(actualClass.headers).map((item) => <input className='w-9/20 2xl:w-6/20 3xl:w-4/20 4xl:w-3/20 rounded-lg p-2' type="text" placeholder={item[1]} name={item[1]} id={item[0]}/>) }
+        { actualClass && Object.entries(actualClass.headers).map((item) => <input className='w-9/20 2xl:w-6/20 3xl:w-4/20 4xl:w-3/20 rounded-lg p-2 placeholder:capitalize' type="text" placeholder={item[1]} name={item[1]} id={item[0]}/>) }
       </form>
     </div>
   );

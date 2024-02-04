@@ -5,14 +5,14 @@ import { headers } from '../../entities/Supplier';
 import { EditorContext } from '../../contexts';
 import { EEditorType } from '../../contexts/EditorContext';
 
-const SupplierComponent = ({ api_url = 'http://localhost' }: any) => {
+const SupplierComponent = () => {
 
   const [lines, setLines] = useState<Supplier[]>([]);
   const { setType } = useContext(EditorContext);
   
   useEffect(() => {
     setType(EEditorType.SUPPLIER);
-    fetch(`${api_url}:2810/api/supplier`)
+    fetch(`http://localhost:2810/api/supplier`)
       .then(res => res.json())
       .then(
         (result) => setLines(result.map((item:object) => new Supplier(item))),

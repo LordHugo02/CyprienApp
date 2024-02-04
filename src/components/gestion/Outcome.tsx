@@ -5,7 +5,7 @@ import { headers } from '../../entities/Outcome';
 import { EditorContext } from '../../contexts';
 import { EEditorType } from '../../contexts/EditorContext';
 
-const OutcomeComponent = ({ api_url = 'http://localhost' }: any) => {
+const OutcomeComponent = () => {
 
   const [lines, setLines] = useState<Outcome[]>([]);
   const { setType } = useContext(EditorContext);
@@ -13,7 +13,7 @@ const OutcomeComponent = ({ api_url = 'http://localhost' }: any) => {
   useEffect(() => {
     setType(EEditorType.OUTCOME);
     
-    fetch(`${api_url}:2810/api/outcome`)
+    fetch(`http://localhost:2810/api/outcome`)
       .then(res => res.json())
       .then(
         (result) => setLines(result.map((item:object) => new Outcome(item))),

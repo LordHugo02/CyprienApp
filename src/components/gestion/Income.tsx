@@ -5,7 +5,7 @@ import { headers } from '../../entities/Income';
 import { EditorContext } from '../../contexts';
 import { EEditorType } from '../../contexts/EditorContext';
 
-const IncomeComponent = ({ api_url = 'http://localhost' }: any) => {
+const IncomeComponent = () => {
 
   const [lines, setLines] = useState<Income[]>([]);
   const { setType } = useContext(EditorContext);
@@ -13,7 +13,7 @@ const IncomeComponent = ({ api_url = 'http://localhost' }: any) => {
   useEffect(() => {
     setType(EEditorType.INCOME);
     
-    fetch(`${api_url}:2810/api/income`)
+    fetch(`http://localhost:2810/api/income`)
       .then(res => res.json())
       .then(
         (result) => setLines(result.map((item:object) => new Income(item))),

@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
 import CustomTable from './CustomTable';
-import { Product, Vat } from '../../entities';
+import { Product } from '../../entities';
 import { headers } from '../../entities/Product';
 import { EditorContext } from '../../contexts';
 import { EEditorType } from '../../contexts/EditorContext';
 
-const Stock = ({ api_url = 'http://localhost' }: any) => {
+const Stock = () => {
 
-  const [lines, setLines] = useState<Vat[]>([]);
+  const [lines, setLines] = useState<Product[]>([]);
   const { setType } = useContext(EditorContext);
   
   useEffect(() => {
     setType(EEditorType.PRODUCT);
-    fetch(`${api_url}:2810/api/product`)
+    fetch(`http://localhost:2810/api/product`)
       .then(res => res.json())
       .then(
         (result) => setLines(result.map((item:object) => new Product(item))),
