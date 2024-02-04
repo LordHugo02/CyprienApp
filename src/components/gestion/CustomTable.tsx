@@ -55,7 +55,7 @@ const CustomTable = ({ lines, headers }: IVatProps | IFamilyProps | IStorageProp
   }, [lines])
 
   return (
-    <table className='w-max min-w-full overflow-x-scroll z-10 relative'>
+    <table className='w-max min-w-full overflow-x-scroll z-10 relative table-auto'>
       <thead className='bg-slate-200 sticky z-20 top-0'>
         <tr>
           {Object.entries(headers)

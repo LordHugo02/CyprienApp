@@ -21,7 +21,7 @@ const Stock = () => {
   }, []);
 
   return (
-    <div className="h-screen w-screen relative">
+    <div className="h-full w-full relative">
         <CustomTable lines={lines} headers={headers}/>
     </div>
 
