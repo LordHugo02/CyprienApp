@@ -8,8 +8,8 @@ import Home from './components/Home';
 const Auth = React.lazy(() => import('./components/auth/Auth'));
 const Login = React.lazy(() => import('./components/auth/Login'));
 const Register = React.lazy(() => import('./components/auth/Register'));
-const Stock = React.lazy(() => import('./components/gestion/Stock'));
 const Gestion = React.lazy(() => import('./components/gestion/Gestion'));
+const ProductComponent = React.lazy(() => import('./components/gestion/Product'));
 const IncomeComponent = React.lazy(() => import('./components/gestion/Income'));
 const OutcomeComponent = React.lazy(() => import('./components/gestion/Outcome'));
 const SupplierComponent = React.lazy(() => import('./components/gestion/Supplier'));
@@ -46,7 +46,7 @@ function App() {
             } >
             <Route path="stock" element={
               <React.Suspense fallback={<Loading />}>
-                <Stock />
+                <ProductComponent />
               </React.Suspense>
             } />
             <Route path="incomes" element={

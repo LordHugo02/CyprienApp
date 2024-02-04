@@ -5,7 +5,7 @@ import { headers } from '../../entities/Product';
 import { EditorContext } from '../../contexts';
 import { EEditorType } from '../../contexts/EditorContext';
 
-const Stock = () => {
+const ProductComponent = () => {
 
   const [lines, setLines] = useState<Product[]>([]);
   const { setType } = useContext(EditorContext);
@@ -28,4 +28,4 @@ const Stock = () => {
   );
 };
 
-export default Stock;
+export default ProductComponent;
