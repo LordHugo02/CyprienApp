@@ -7,12 +7,13 @@ import { ISupplierProps } from '../../entities/Supplier';
 import { IIncomeProps } from '../../entities/Income';
 import { IOutcomeProps } from '../../entities/Outcome';
 import { IUseProps } from '../../entities/Use';
+import { IProductProps } from '../../entities/Product';
 
 export interface ICustomTable {
   headers: object
 }
 
-const CustomTable = ({ lines, headers }: IVatProps | IFamilyProps | IStorageProps | ISupplierProps | IIncomeProps | IOutcomeProps | IUseProps) => {
+const CustomTable = ({ lines, headers }: IVatProps | IFamilyProps | IStorageProps | ISupplierProps | IIncomeProps | IOutcomeProps | IUseProps | IProductProps) => {
   const [sortRatio, setRatio] = useState(1);
   const [sortedLines, setLines] = useState<any[]>(lines)
   
@@ -25,7 +26,7 @@ const CustomTable = ({ lines, headers }: IVatProps | IFamilyProps | IStorageProp
     });
   }
 
-  const handlesortCol = (ev: any|null, slug: string, ratio: number = 1) => {
+  const handleSortCol = (ev: any|null, slug: string, ratio: number = 1) => {
     if(ev){
       const target = ev.target as HTMLElement;
       rmSort(target);
@@ -59,7 +60,7 @@ const CustomTable = ({ lines, headers }: IVatProps | IFamilyProps | IStorageProp
         <tr>
           {Object.entries(headers)
             .map(
-              (header) => <th className='cursor-pointer py-2 px-2 pr-10 capitalize sortable relative' onClick={(event) => handlesortCol(event, header[0])}>{header[1]}</th>,
+              (header) => <th className='cursor-pointer py-2 px-2 pr-10 capitalize sortable relative' onClick={(event) => handleSortCol(event, header[0])}>{header[1]}</th>,
             )
           }
         </tr>

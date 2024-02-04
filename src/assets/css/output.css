@@ -29973,6 +29973,10 @@ video {
   outline-color: #94a3b8;
 }
 
+.placeholder\:capitalize::placeholder {
+  text-transform: capitalize;
+}
+
 .even\:bg-slate-200:nth-child(even) {
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));

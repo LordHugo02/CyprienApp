@@ -15,8 +15,6 @@ export default class Income {
 
   public itemPrice: number | undefined = undefined;
 
-
-
   constructor({ ...props }) {
     this.id = props.id;
     this.product = props.product;

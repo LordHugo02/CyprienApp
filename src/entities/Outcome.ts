@@ -16,16 +16,13 @@ export default class Outcome {
 
   public quantity: number | undefined = undefined;
 
-  public itemPrice: number | undefined = undefined;
-
   constructor({ ...props }) {this.id = props.id;
     this.product = props.product;
     this.user = props.user;
     this.createdAt = props.createdAt;
     this.reason = props.reason;
     this.out_at = props.out_at;
-    this.quantity = props.quantity;
-    this.itemPrice = props.itemPrice;    
+    this.quantity = props.quantity; 
   }
 
   public headers = headers;
@@ -44,5 +41,4 @@ export const headers = {
   'reason': 'raison',
   'out_at': 'date',
   'quantity': 'quantité',
-  'itemPrice': 'prix',
 };
