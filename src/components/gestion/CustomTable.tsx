@@ -15,7 +15,7 @@ export interface ICustomTable {
 
 const CustomTable = ({ lines, headers }: IVatProps | IFamilyProps | IStorageProps | ISupplierProps | IIncomeProps | IOutcomeProps | IUseProps | IProductProps) => {
   const [sortRatio, setRatio] = useState(1);
-  const [sortedLines, setLines] = useState<any[]>(lines)
+  const [sortedLines, setLines] = useState<any[]>([])
   
   const rmSort = (target: HTMLElement) => {
     const ths = document.querySelectorAll('th');
@@ -41,7 +41,7 @@ const CustomTable = ({ lines, headers }: IVatProps | IFamilyProps | IStorageProp
         else target.classList.add('desc')
       }
     }
-    let temp = JSON.parse(JSON.stringify(sortedLines));
+    let temp = JSON.parse(JSON.stringify(lines));
     temp.sort((a: any, b: any) => {
       return a[slug as keyof typeof a]! === b[slug as keyof typeof b]! ? 0 : 
         a[slug as keyof typeof a]! > b[slug as keyof typeof b]! ? 1 * sortRatio : -1 * sortRatio
@@ -51,8 +51,12 @@ const CustomTable = ({ lines, headers }: IVatProps | IFamilyProps | IStorageProp
   }
 
   useEffect(() => {
-    setLines(lines);
+    handleSortCol(null, 'name')
   }, [])
+  
+  useEffect(() => {
+    handleSortCol(null, 'name')
+  }, [lines])
 
   return (
     <table className='w-max min-w-full overflow-x-scroll z-10 relative table-auto'>
