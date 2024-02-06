@@ -10,8 +10,8 @@ const Gestion = () => {
   const [asideOpen, setAsideState] = useState(true);
   
   const [editorType, setType] = useState(EEditorType.PRODUCT);
-  const [editorOpen, toggleEditor] = useState(-1);
-  const value = { editorType, setType, editorOpen, toggleEditor };
+  const [editorOpen, setEditorState] = useState(-1);
+  const value = { editorType, setType, editorOpen, setEditorState };
 
   const linkClasses = 'inline-flex items-center gap-4 h-full w-full transition px-3 py-2 hover:bg-blue-dark hover:text-white aria-[current=page]:bg-white aria-[current=page]:text-blue aria-[current=page]:rounded-l-full';
   const divLinkClasses = 'flex flex-row gap-4';
@@ -25,7 +25,7 @@ const Gestion = () => {
   };
 
   const handleToggleEditor = () => {
-    toggleEditor((current) => current *= -1);
+    setEditorState((current) => current *= -1);
   };
 
 
@@ -53,6 +53,8 @@ const Gestion = () => {
                     <div className="h-32 bg-no-repeat bg-bottom bg-contain mt-3 mb-2 ml-1 mr-3 bg-logo"></div>
                     <hr className="mx-3"/>
                     <ul className="text-2xl flex flex-col py-3 items-stretch justify-start gap-2">
+                        <li onClick={handleToggleEditor}>TOGGLE
+                        </li>
                         <li>
                             <NavLink className={linkClasses} to="/gestion/stock" end>
                                 <div className={divLinkClasses}>
