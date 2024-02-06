@@ -21,7 +21,7 @@ const UseComponent = () => {
   }, );
 
   return (
-    <div className="h-full w-full relative">
+    <div className="h-full w-full relative overflow-scroll">
         <CustomTable lines={lines} headers={headers}/>
     </div>
   );
