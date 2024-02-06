@@ -41,6 +41,8 @@ const Gestion = () => {
       aside.classList.replace(baseWidthAside, closedWidthAside);
     }
   }, [asideOpen]);
+  
+  const mainClasses = `${asideOpen ? 'w-aside-open' : 'w-aside-close'} h-screen transition-all duration-500`;
 
   return (
         <div className="h-screen w-screen">
@@ -109,7 +111,7 @@ const Gestion = () => {
                         </li>
                     </ul>
                 </aside>
-                <main className="w-aside-close h-screen transition-all duration-500">
+                <main className={mainClasses}>
                     <EditorContext.Provider value={value}>
                         <Editor />
                         <Outlet />
