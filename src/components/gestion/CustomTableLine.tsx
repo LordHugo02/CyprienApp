@@ -44,13 +44,19 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
     handleLineChanges()
   }, [line]);
 
+  const editLinkClass = `absolute text-blue bottom-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-all`;
+  const trClass = `bg-slate-100 even:bg-slate-200 relative cursor-default productTable group relative`;
   return (
-    <tr className='bg-slate-100 even:bg-slate-200 relative cursor-default productTable'>
+    <tr className={trClass}>
       {Object.values(actualLine)
         .map(
-          (col) => <td className='p-2 min-w-28 max-w-xl w-max'>{col.content}</td>,
+          (col) => <td className='p-2 min-w-28 max-w-xl w-max pb-8'>{col.content}</td>,
         )
       }
+      <div className={editLinkClass}>
+        <div className=''>Modifier</div>|
+        <div className='text-red-500'>Supprimer</div>
+      </div>
     </tr>
   );
 };
