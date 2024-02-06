@@ -6,12 +6,21 @@ import { EEditorType } from '../../contexts/EditorContext';
 import Editor from './Editor';
 
 const Gestion = () => {
+    
+    const [asideOpen, setAsideState] = useState(true);
 
-  const [asideOpen, setAsideState] = useState(true);
-  
-  const [editorType, setType] = useState(EEditorType.PRODUCT);
-  const [editorOpen, setEditorState] = useState(-1);
-  const value = { editorType, setType, editorOpen, setEditorState };
+    const [editorType, setType] = useState(EEditorType.PRODUCT);
+    const [editorOpen, setEditorState] = useState(-1);
+
+    const toggleEditor = (state: number = 0) => {
+        
+        setEditorState((current) => {
+
+            console.log("toggle state from " + current + " to " + state);
+            return state === 0 ? current *= -1 : state
+        } );
+    };
+  const value = { editorType, setType, editorOpen, toggleEditor };
 
   const linkClasses = 'inline-flex items-center gap-4 h-full w-full transition px-3 py-2 hover:bg-blue-dark hover:text-white aria-[current=page]:bg-white aria-[current=page]:text-blue aria-[current=page]:rounded-l-full';
   const divLinkClasses = 'flex flex-row gap-4';
@@ -22,10 +31,6 @@ const Gestion = () => {
 
   const toggleAside = () => {
     setAsideState(state => !state);
-  };
-
-  const handleToggleEditor = () => {
-    setEditorState((current) => current *= -1);
   };
 
 
@@ -42,7 +47,7 @@ const Gestion = () => {
     }
   }, [asideOpen]);
   
-  const mainClasses = `${asideOpen ? 'w-aside-open' : 'w-aside-close'} h-screen transition-all duration-500`;
+  const mainClasses = `${asideOpen ? 'w-aside-open' : 'w-aside-close'} h-screen transition-all duration-500 relative`;
 
   return (
         <div className="h-screen w-screen">
@@ -53,8 +58,6 @@ const Gestion = () => {
                     <div className="h-32 bg-no-repeat bg-bottom bg-contain mt-3 mb-2 ml-1 mr-3 bg-logo"></div>
                     <hr className="mx-3"/>
                     <ul className="text-2xl flex flex-col py-3 items-stretch justify-start gap-2">
-                        <li onClick={handleToggleEditor}>TOGGLE
-                        </li>
                         <li>
                             <NavLink className={linkClasses} to="/gestion/stock" end>
                                 <div className={divLinkClasses}>
