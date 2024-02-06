@@ -52,7 +52,7 @@ const CustomTable = ({ lines, headers }: IVatProps | IFamilyProps | IStorageProp
 
   useEffect(() => {
     setLines(lines);
-  }, [lines])
+  }, [])
 
   return (
     <table className='w-max min-w-full overflow-x-scroll z-10 relative table-auto'>
