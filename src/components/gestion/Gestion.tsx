@@ -109,7 +109,7 @@ const Gestion = () => {
                         </li>
                     </ul>
                 </aside>
-                <main className="w-aside-close h-screen transition-all duration-500 overflow-scroll">
+                <main className="w-aside-close h-screen transition-all duration-500">
                     <EditorContext.Provider value={value}>
                         <Editor />
                         <Outlet />
