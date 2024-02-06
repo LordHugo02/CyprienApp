@@ -13,7 +13,9 @@ export enum EEditorType {
 
 const EditorContext = createContext({
   editorType: EEditorType.PRODUCT,
-  setType: (val: EEditorType) => {}
+  setType: (val: EEditorType) => {},
+  editorOpen: -1,
+  toggleEditor: (force: number) => {},
 });
 
 export default EditorContext;
