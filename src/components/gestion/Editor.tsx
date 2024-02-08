@@ -83,8 +83,6 @@ const Editor = () => {
   }, [editorOpen])
 
   const handleEditorClose = () => {
-    console.log('want to close');
-    
     toggleEditor(-1);
   }  
   const handleEditorOpen = () => {

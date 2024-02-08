@@ -22,12 +22,7 @@ const FamilyComponent = React.lazy(() => import('./components/gestion/Family'));
 function App() {
   const [isTooSmall, setIsToSmall] = useState(false);
   useEffect(() => {
-    console.log('useeffect');
-    console.log(window.screen.width);
-    
     if (window.screen.width < 800) {
-      console.log("screen");
-      
       setIsToSmall(true)
     }
   }, [])

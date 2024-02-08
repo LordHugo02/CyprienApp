@@ -13,10 +13,7 @@ const Gestion = () => {
     const [editorOpen, setEditorState] = useState(-1);
 
     const toggleEditor = (state: number = 0) => {
-        
         setEditorState((current) => {
-
-            console.log("toggle state from " + current + " to " + state);
             return state === 0 ? current *= -1 : state
         } );
     };
