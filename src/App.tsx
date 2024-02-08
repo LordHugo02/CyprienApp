@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import NotFound from './components/NotFound';
 import Loading from './components/Loading';
 import Home from './components/Home';
+import MobileComponent from './components/Mobile';
   
 const Auth = React.lazy(() => import('./components/auth/Auth'));
 const Login = React.lazy(() => import('./components/auth/Login'));
@@ -19,8 +20,20 @@ const FamilyComponent = React.lazy(() => import('./components/gestion/Family'));
 
 
 function App() {
+  const [isTooSmall, setIsToSmall] = useState(false);
+  useEffect(() => {
+    console.log('useeffect');
+    console.log(window.screen.width);
+    
+    if (window.screen.width < 800) {
+      console.log("screen");
+      
+      setIsToSmall(true)
+    }
+  }, [])
   return (
     <>
+      {isTooSmall ? <MobileComponent /> : 
        <Routes>
           <Route path="/" element={<Home />} />
           <Route path="auth" element={
@@ -81,7 +94,8 @@ function App() {
             } />
             </Route>
           <Route path='*' element={<NotFound />} />
-       </Routes>
+       </Routes> 
+}
     </>
   );
 }
