@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { EditorContext } from '../../contexts';
 
 interface ILine {
   slug: string,
@@ -11,6 +12,7 @@ interface IBaseLine {
 
 const CustomTableLine = ({ line, headers }: IBaseLine) => {
   const [actualLine, setLine] = useState<ILine[]>([]);
+  const { toggleEditor } = useContext(EditorContext);
   
   const handleLineChanges = () => {
     const tempTab: ILine[] = [];
@@ -54,7 +56,7 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
         )
       }
       <div className={editLinkClass}>
-        <div className=''>Modifier</div>|
+        <div className='' onClick={() => toggleEditor(1)}>Modifier</div>|
         <div className='text-red-500'>Supprimer</div>
       </div>
     </tr>
