@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { EditorContext } from '../../contexts';
 
 interface ILine {
+  id: number,
   slug: string,
   content: string
 }
@@ -20,10 +21,12 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
     const baseLinekeys = Object.keys(line);
     const baseLinevalues = Object.values(line);
     refTab.forEach(ref => {
-      const i = baseLinekeys.indexOf(ref);
+      const iref = baseLinekeys.indexOf(ref);
+      const iid = baseLinekeys.indexOf('id ');
       const temp: ILine = {
+        id: baseLinevalues[iid],
         slug: ref,
-        content: baseLinevalues[i],
+        content: baseLinevalues[iref],
       };
       
       if (temp.slug === 'price') {
@@ -37,6 +40,9 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
       tempTab.push(temp);
     });
     setLine(tempTab);
+  }
+  const handleModify = (ratio: number) => {
+    toggleEditor(1)
   }
 
   useEffect(() => {
@@ -52,13 +58,20 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
     <tr className={trClass}>
       {Object.values(actualLine)
         .map(
-          (col) => <td className='p-2 min-w-28 max-w-xl w-max pb-8'>{col.content}</td>,
+          (col) => {
+            console.log(col)
+            return (
+              <>
+                <td className='p-2 min-w-28 max-w-xl w-max pb-8'>{col.content}</td>
+                <div className={editLinkClass}>
+                  <div className='cursor-pointer' onClick={() => handleModify(1)}>Modifier</div>|
+                  <div className='cursor-pointer text-red-500'>Supprimer</div>
+                </div>
+              </>
+            );
+          },
         )
       }
-      <div className={editLinkClass}>
-        <div className='' onClick={() => toggleEditor(1)}>Modifier</div>|
-        <div className='text-red-500'>Supprimer</div>
-      </div>
     </tr>
   );
 };
