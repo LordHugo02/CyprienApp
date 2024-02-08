@@ -1,23 +1,12 @@
-import { useNavigate } from 'react-router-dom';
-import Header from './Header';
-import { useEffect } from 'react';
+import React from 'react';
 
 const MobileComponent = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const main = document.querySelector('main') as HTMLElement;
-    const header = document.querySelector('header') as HTMLElement;
-    if (!header || !main) return;
-
-    main.style.height = 'calc(100vh - ' + header.getBoundingClientRect().height + 'px)';
-
-  }, []);
-
   return (
-      <>
-         no mobile please 
-      </>  
+    <>
+      <main className='w-screen h-full flex justify-around items-center p-4 m-auto absolute   '>
+        <h2 className='w-full text-center text-blue text-2xl font-semibold'>Ce site n'est pas accessible en version mobile pour l'instant<br/>;)</h2>
+      </main>
+    </>  
   );
 };
 
