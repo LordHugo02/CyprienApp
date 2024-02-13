@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, redirect, Navigate } from 'react-router-dom';
 import './App.css';
 import NotFound from './components/NotFound';
 import Loading from './components/Loading';
@@ -30,7 +30,7 @@ function App() {
     <>
       {isTooSmall ? <MobileComponent /> : 
        <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Navigate to="/auth" />} />
           <Route path="auth" element={
               <React.Suspense fallback={<Loading />}>
                 <Auth />
