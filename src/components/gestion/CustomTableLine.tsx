@@ -69,22 +69,22 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
     {
       actualLine && 
       <tr className={trClass}>
-      {Object.values(actualLine.content)
-        .map(
-          (col) => {
-            return (
-              <>
-                <td className='p-2 min-w-28 max-w-xl w-max pb-8'>{col.content}</td>
-              </>
-            );
-          },
-        )
-      }
-      <p className={editLinkClass}>
-        <span className='cursor-pointer' onClick={() => handleModify(actualLine.id)}>Modifier</span>|
-        <span className='cursor-pointer text-red-500'>Supprimer</span>
-      </p>
-    </tr>
+        {Object.values(actualLine.content)
+          .map(
+            (col) => {
+              return (
+                <>
+                  <td className='p-2 min-w-28 max-w-xl w-max pb-8'>{col.content}</td>
+                </>
+              );
+            },
+          )
+        }
+        <span className={editLinkClass}>
+          <span className='cursor-pointer' onClick={() => handleModify(actualLine.id)}>Modifier</span>|
+          <span className='cursor-pointer text-red-500'>Supprimer</span>
+        </span>
+      </tr>
     }
     </>
   );
