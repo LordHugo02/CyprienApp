@@ -1,6 +1,8 @@
 
 import { ICustomTable } from '../components/gestion/CustomTable';
 
+require('dotenv').config();
+
 export default class Storage {
   public id: number | undefined = 0;
 
@@ -19,6 +21,10 @@ export default class Storage {
 
   public headers = headers;
 
+  public async getById(id: number){
+    return await fetch(`http://${process.env.API_URL}/storage/${id}`)
+      .then(res => res.json())
+  }
 }
 export interface IStorageProps extends ICustomTable {
   lines: Storage[]
