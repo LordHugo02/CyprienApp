@@ -16,6 +16,8 @@ const EditorContext = createContext({
   setType: (val: EEditorType) => {},
   editorOpen: -1,
   toggleEditor: (state: number = 0) => {},
+  itemId: -1,
+  setItemId: (id: number = -1) => {},
 });
 
 export default EditorContext;

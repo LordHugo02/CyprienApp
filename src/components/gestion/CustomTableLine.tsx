@@ -20,7 +20,7 @@ interface ILineRef {
 
 const CustomTableLine = ({ line, headers }: IBaseLine) => {
   const [actualLine, setLine] = useState<ILine>();
-  const { toggleEditor } = useContext(EditorContext);
+  const { toggleEditor, setItemId } = useContext(EditorContext);
   
   const handleLineChanges = () => {
     const tempLine = line as ILineRef
@@ -52,7 +52,8 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
     setLine(tempTab);
   }
   const handleModify = (id: number) => {
-    toggleEditor(1)
+    toggleEditor(1);
+    setItemId(id);
   }
 
   useEffect(() => {

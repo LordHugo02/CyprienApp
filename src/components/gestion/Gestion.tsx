@@ -10,6 +10,7 @@ const Gestion = () => {
     const [asideOpen, setAsideState] = useState(true);
 
     const [editorType, setType] = useState(EEditorType.PRODUCT);
+    const [itemId, setItem] = useState(-1);
     const [editorOpen, setEditorState] = useState(-1);
 
     const toggleEditor = (state: number = 0) => {
@@ -17,7 +18,14 @@ const Gestion = () => {
             return state === 0 ? current *= -1 : state
         } );
     };
-  const value = { editorType, setType, editorOpen, toggleEditor };
+    const setItemId = (id: number = -1) => {
+        setItem(id);
+    };
+    const value = { 
+        editorType, setType,
+        editorOpen, toggleEditor,
+        itemId, setItemId
+    };
 
   const linkClasses = 'inline-flex items-center gap-4 h-full w-full transition px-3 py-2 hover:bg-blue-dark hover:text-white aria-[current=page]:bg-white aria-[current=page]:text-blue aria-[current=page]:rounded-l-full';
   const divLinkClasses = 'flex flex-row gap-4';

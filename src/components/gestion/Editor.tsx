@@ -6,12 +6,13 @@ import { Plus } from 'lucide-react';
 import Loading from '../Loading';
 
 const Editor = () => {
-  const { editorType, editorOpen } = useContext(EditorContext);
+  const { editorType, editorOpen, itemId } = useContext(EditorContext);
   const { toggleEditor } = useContext(EditorContext);
   
   const [actualClass, setClass] = useState<Family | Income | Outcome | Product | Storage | Supplier | Use | Vat>();
   const [editorHeight, setEditorHeight] = useState(0);
   const [okInit, setOkInit] = useState(false);
+  const [item, setItem] = useState()
 
   // ===== SET CLASS ==============================================================================
   useEffect(() => {
@@ -71,6 +72,15 @@ const Editor = () => {
 
   const editor = useRef(null);
 
+  useEffect(() => {
+    async function initItem(id: number){
+      if(actualClass instanceof Storage){
+        const data = await actualClass.getById(itemId)
+        setItem(data)
+      }
+    }
+    initItem(itemId)
+  }, [itemId, actualClass])
 
   useEffect(() => {
     if (editor !== null && editor.current !== null && okInit) {
@@ -99,7 +109,7 @@ const Editor = () => {
     { !okInit && <Loading wClass='w-full' /> }
       <div ref={editor} className={editorClasses}>
         <form className='flex flex-wrap justify-between gap-2 bg-slate-400 w-full h-max p-4 pb-20' action="">
-          { actualClass && Object.entries(actualClass.headers).map((item) => <input className='w-9/20 2xl:w-6/20 3xl:w-4/20 4xl:w-3/20 rounded-lg p-2 placeholder:capitalize' type="text" placeholder={item[1]} name={item[1]} id={item[0]}/>) }
+          { actualClass && Object.entries(actualClass.headers).map((header) => <input className='w-9/20 2xl:w-6/20 3xl:w-4/20 4xl:w-3/20 rounded-lg p-2 placeholder:capitalize' type="text" value={item && item[header[0]]} placeholder={header[1]} name={header[1]} id={header[0]}/>) }
         </form>
         <div className="flex gap-4 items-center absolute bottom-4 right-4 text-white font-semibold">
           <div className="rounded cursor-pointer px-4 py-2 bg-blue">Enregistrer</div>
