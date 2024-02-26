@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Loading = ({ wClass = undefined }: any) => {
+interface loadingProps {
+  wClass?: undefined|string
+}
+
+const Loading = ({ wClass = undefined }: loadingProps) => {
   const baseClass = `h-screen ${wClass ? wClass : 'w-screen'} absolute top-0 left-0 bg-slate-100 flex items-center justify-around z-50`;
   return (
     <div className={baseClass}>
