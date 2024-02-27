@@ -24,7 +24,12 @@ export default class Storage {
       .then(res => res.json());
   }
   public async getAllByCompanyId(){
-    return await fetch(`${process.env.REACT_APP_API_URL}/storage`)
-      .then(res => res.json());
+    return await fetch(`${process.env.REACT_APP_API_URL}/storage?company=${process.env.REACT_APP_COMPANY_ID}`)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        
+        return res;
+      });
   }
 }

@@ -11,9 +11,9 @@ const Gestion = () => {
     
   const [asideOpen, setAsideState] = useState(true);
 
-  const [actualClass, setlClass] = useState<undefined|Storage>(undefined);
+  const [actualClass, setClass] = useState<undefined|Storage>(undefined);
   // const [itemId, setItem] = useState(-1);
-  // const [editorOpen, setEditorState] = useState(-1);
+  const [editorOpen, setEditorState] = useState(false);
 
   // const toggleEditor = (state: number = 0) => {
   //   setEditorState((current) => {
@@ -24,10 +24,14 @@ const Gestion = () => {
   //   setItem(id);
   // };
   const setActualClass = (newClass: undefined|Storage) => {
-    setlClass(newClass);
+    setClass(newClass);
+  };
+  const toggleEditor = (state: boolean) => {
+    setEditorState(state);
   };
   const value = { 
-    actualClass, setActualClass
+    actualClass, setActualClass,
+    editorOpen, toggleEditor,
   };
 
   const linkClasses = 'inline-flex items-center gap-4 h-full w-full transition px-3 py-2 hover:bg-blue-dark hover:text-white aria-[current=page]:bg-white aria-[current=page]:text-blue aria-[current=page]:rounded-l-full';
@@ -54,6 +58,10 @@ const Gestion = () => {
       aside.classList.replace(baseWidthAside, closedWidthAside);
     }
   }, [asideOpen]);
+  useEffect(() => {
+    console.log(editorOpen);
+    
+  }, [editorOpen]);
   
   const mainClasses = `${asideOpen ? 'w-aside-open' : 'w-aside-close'} h-screen transition-all duration-500 relative`;
 
@@ -126,6 +134,7 @@ const Gestion = () => {
         </aside>
         <main className={mainClasses}>
           <GeneralContext.Provider value={value}>
+            {editorOpen}
             {/* <Editor /> */}
             <Outlet />
           </GeneralContext.Provider>

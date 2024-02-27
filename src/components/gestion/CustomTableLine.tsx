@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-// import { EditorContext } from '../../contexts';
+import React, { useContext, useEffect, useState } from 'react';
+import GeneralContext from '../../contexts/GeneralContext';
 
 
 interface ILineContent {
@@ -20,7 +20,8 @@ interface ILineRef {
 
 const CustomTableLine = ({ line, headers }: IBaseLine) => {
   const [actualLine, setLine] = useState<ILine>();
-  // const { toggleEditor, setItemId } = useContext(EditorContext);
+  // const { toggleEditor, setItemId } = useContext(GeneralContext);
+  const { toggleEditor } = useContext(GeneralContext);
   
   const handleLineChanges = () => {
     const tempLine = line as ILineRef;
@@ -51,10 +52,10 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
     });
     setLine(tempTab);
   };
-  // const handleModify = (id: number) => {
-  //   toggleEditor(1);
-  //   setItemId(id);
-  // };
+  const handleModify = () => {
+    toggleEditor(true);
+    // setItemId(id);
+  };
 
   useEffect(() => {
     handleLineChanges();
@@ -83,6 +84,7 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
         }
         <span className={editLinkClass}>
           {/* <span className='cursor-pointer' onClick={() => handleModify(actualLine.id)}>Modifier</span>| */}
+          <span className='cursor-pointer' onClick={() => handleModify()}>Modifier</span>|
           <span className='cursor-pointer text-red-500'>Supprimer</span>
         </span>
       </tr>

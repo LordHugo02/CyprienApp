@@ -55,11 +55,16 @@ function App() {
         }>
           <Route index element={<Navigate to="/gestion/stock" />} />
           <Route path="stock" element={<Navigate to="/gestion/storages" />} />
+          <Route path="outcomes" element={<Navigate to="/gestion/storages" />} />
+          <Route path="incomes" element={<Navigate to="/gestion/storages" />} />
+          <Route path="families" element={<Navigate to="/gestion/storages" />} />
           <Route path="storages" element={
             <React.Suspense fallback={<Loading />}>
               <StorageComponent />
             </React.Suspense>
           } />
+          <Route path="suppliers" element={<Navigate to="/gestion/storages" />} />
+          <Route path="uses" element={<Navigate to="/gestion/storages" />} />
         </Route>
         <Route path='*' element={<NotFound />} />
       </Routes> 
