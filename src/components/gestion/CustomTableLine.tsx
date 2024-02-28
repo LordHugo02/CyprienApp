@@ -73,13 +73,7 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
       <tr className={trClass}>
         {Object.values(actualLine.content)
           .map(
-            (col) => {
-              return (
-                <>
-                  <td className='p-2 min-w-28 max-w-xl w-max pb-8'>{col.content}</td>
-                </>
-              );
-            },
+            (col, i) => <td className='p-2 min-w-28 max-w-xl w-max pb-8' key={i}>{col.content}</td>
           )
         }
         <span className={editLinkClass}>

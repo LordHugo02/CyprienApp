@@ -3,7 +3,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { ChevronRight, Component, Package, PackageMinus, PackagePlus, ReplaceAll, Table, Truck } from 'lucide-react';
 import Storage from '../../models/Storage';
 import GeneralContext from '../../contexts/GeneralContext';
-// import { EditorContext } from '../../contexts';
+import Editor from './Editor';
 // import { EEditorType } from '../../contexts/EditorContext';
 // import Editor from './Editor';
 
@@ -28,6 +28,11 @@ const Gestion = () => {
   };
   const toggleEditor = (state: boolean) => {
     setEditorState(state);
+  const toggleEditor = (state: undefined|boolean = undefined) => {
+    if(state)
+      setEditorState(state);
+    else
+      setEditorState(actualState => !actualState);
   };
   const value = { 
     actualClass, setActualClass,
@@ -134,8 +139,7 @@ const Gestion = () => {
         </aside>
         <main className={mainClasses}>
           <GeneralContext.Provider value={value}>
-            {editorOpen}
-            {/* <Editor /> */}
+            <Editor />
             <Outlet />
           </GeneralContext.Provider>
         </main>

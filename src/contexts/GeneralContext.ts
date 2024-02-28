@@ -6,7 +6,7 @@ const GeneralContext = createContext({
   setActualClass: (newClass: undefined|Storage) => console.log(newClass),
 
   editorOpen: false,
-  toggleEditor: (state: boolean) => console.log(state)
+  toggleEditor: (state: undefined|boolean = undefined) => console.log(state),
 });
 
 export default GeneralContext;
