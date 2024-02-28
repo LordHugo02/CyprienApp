@@ -4,8 +4,6 @@ import { ChevronRight, Component, Package, PackageMinus, PackagePlus, ReplaceAll
 import Storage from '../../models/Storage';
 import GeneralContext from '../../contexts/GeneralContext';
 import Editor from './Editor';
-// import { EEditorType } from '../../contexts/EditorContext';
-// import Editor from './Editor';
 
 const Gestion = () => {
     
@@ -15,14 +13,6 @@ const Gestion = () => {
   // const [itemId, setItem] = useState(-1);
   const [editorOpen, setEditorState] = useState(false);
 
-  // const toggleEditor = (state: number = 0) => {
-  //   setEditorState((current) => {
-  //     return state === 0 ? current *= -1 : state;
-  //   } );
-  // };
-  // const setItemId = (id: number = -1) => {
-  //   setItem(id);
-  // };
   const setActualClass = (newClass: undefined|Storage) => {
     setClass(newClass);
   };
@@ -63,10 +53,6 @@ const Gestion = () => {
       aside.classList.replace(baseWidthAside, closedWidthAside);
     }
   }, [asideOpen]);
-  useEffect(() => {
-    console.log(editorOpen);
-    
-  }, [editorOpen]);
   
   const mainClasses = `${asideOpen ? 'w-aside-open' : 'w-aside-close'} h-screen transition-all duration-500 relative`;
 

@@ -60,7 +60,7 @@ const CustomTable = ({ lines, headers }: IStorageProps) => {
       </thead>
       <tbody>
         {
-          sortedLines.map((line: object) => <CustomTableLine line={line} headers={headers} key={1} />)
+          sortedLines.map((line: object, i) => <CustomTableLine line={line} headers={headers} key={i} />)
         }
       </tbody>
     </table>

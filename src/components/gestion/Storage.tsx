@@ -14,7 +14,6 @@ const StorageComponent = () => {
   const { setActualClass } = useContext(GeneralContext);
   
   async function init(){
-    
     if(actualClass){
       const result = await actualClass?.getAllByCompanyId();
       setLines(result.map((item:object) => new Storage(item)));
