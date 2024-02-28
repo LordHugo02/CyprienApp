@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CustomTableLine from './CustomTableLine';
-import { IStorageProps } from '../../interfaces/Istorage';
+import { IStorageProps } from '../../interfaces/IStorage';
 
 const CustomTable = ({ lines, headers }: IStorageProps) => {
   const [sortRatio, setRatio] = useState(1);
