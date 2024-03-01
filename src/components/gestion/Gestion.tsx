@@ -10,14 +10,15 @@ const Gestion = () => {
   const [asideOpen, setAsideState] = useState(true);
 
   const [actualClass, setClass] = useState<undefined|Storage>(undefined);
-  // const [itemId, setItem] = useState(-1);
+  const [itemId, setItem] = useState(-1);
   const [editorOpen, setEditorState] = useState(false);
 
   const setActualClass = (newClass: undefined|Storage) => {
     setClass(newClass);
   };
-  const toggleEditor = (state: boolean) => {
-    setEditorState(state);
+  const setItemId = (id: number) => {
+    setItem(id);
+  };
   const toggleEditor = (state: undefined|boolean = undefined) => {
     if(state){
       if(state != editorOpen)
@@ -34,6 +35,7 @@ const Gestion = () => {
   const value = { 
     actualClass, setActualClass,
     editorOpen, toggleEditor,
+    itemId, setItemId
   };
 
   const linkClasses = 'inline-flex items-center gap-4 h-full w-full transition px-3 py-2 hover:bg-blue-dark hover:text-white aria-[current=page]:bg-white aria-[current=page]:text-blue aria-[current=page]:rounded-l-full';

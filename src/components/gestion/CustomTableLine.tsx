@@ -20,7 +20,7 @@ interface ILineRef {
 
 const CustomTableLine = ({ line, headers }: IBaseLine) => {
   const [actualLine, setLine] = useState<ILine>();
-  // const { toggleEditor, setItemId } = useContext(GeneralContext);
+  const { setItemId } = useContext(GeneralContext);
   const { toggleEditor } = useContext(GeneralContext);
   
   const handleLineChanges = () => {
@@ -52,9 +52,9 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
     });
     setLine(tempTab);
   };
-  const handleModify = () => {
+  const handleModify = (id: number) => {
     toggleEditor(true);
-    // setItemId(id);
+    setItemId(id);
   };
 
   useEffect(() => {
@@ -77,8 +77,7 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
           )
         }
         <span className={editLinkClass}>
-          {/* <span className='cursor-pointer' onClick={() => handleModify(actualLine.id)}>Modifier</span>| */}
-          <span className='cursor-pointer' onClick={() => handleModify()}>Modifier</span>|
+          <span className='cursor-pointer' onClick={() => handleModify(actualLine.id)}>Modifier</span>|
           <span className='cursor-pointer text-red-500'>Supprimer</span>
         </span>
       </tr>

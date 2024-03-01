@@ -7,6 +7,9 @@ const GeneralContext = createContext({
 
   editorOpen: false,
   toggleEditor: (state: undefined|boolean = undefined) => console.log(state),
+
+  itemId: -1,
+  setItemId: (id: number) => console.log(id)
 });
 
 export default GeneralContext;
