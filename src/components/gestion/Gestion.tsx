@@ -19,9 +19,16 @@ const Gestion = () => {
   const toggleEditor = (state: boolean) => {
     setEditorState(state);
   const toggleEditor = (state: undefined|boolean = undefined) => {
-    if(state)
-      setEditorState(state);
-    else
+    if(state){
+      if(state != editorOpen)
+        setEditorState(state);
+      else{
+        setEditorState(actualState => !actualState);
+        setTimeout(() => {
+          setEditorState(actualState => !actualState);
+        }, 1);
+      }
+    }else
       setEditorState(actualState => !actualState);
   };
   const value = { 

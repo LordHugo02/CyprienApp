@@ -58,7 +58,7 @@ const Editor = () => {
     toggleEditor();
   };  
 
-  const editorClasses = 'w-full relative overflow-hidden';
+  const editorClasses = 'w-full relative overflow-hidden delay-75';
 
   return (
     <>
