@@ -34,7 +34,7 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
     const baseLinekeys = Object.keys(line);
     const baseLinevalues = Object.values(line);
     refTab.forEach(ref => {
-      const iref = baseLinekeys.indexOf(ref);
+      const iref = baseLinekeys.indexOf('_'+ref);
       const temp: ILineContent = {
         slug: ref,
         content: baseLinevalues[iref],

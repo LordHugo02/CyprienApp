@@ -1,9 +1,9 @@
 export default class Storage {
-  public id: number | undefined = 0;
+  public id: number = -1;
 
-  public slug: string | undefined = undefined;
+  private _slug: string | undefined = undefined;
   
-  public description: string | undefined = undefined;
+  private _description: string | undefined = undefined;
   
   public company: string | undefined = undefined;
 
@@ -18,6 +18,20 @@ export default class Storage {
     'slug': 'emplacement',
     'description': 'description',
   };
+  public set slug(val: string){
+    this._slug = val;
+  }
+  public get slug(){
+    return this._slug || '';
+  }
+  // -----
+  public set description(val: string){
+    this._description = val;
+  }
+  public get description(){
+    return this._description || '';
+  }
+  // -----
 
   public async getById(id: number){
     return await fetch(`${process.env.REACT_APP_API_URL}/storage/${id}`)
