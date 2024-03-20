@@ -65,7 +65,7 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
   }, [line]);
 
   const editLinkClass = 'absolute text-blue bottom-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-all';
-  const trClass = 'bg-slate-100 even:bg-slate-200 relative cursor-default productTable group relative';
+  const trClass = 'relative cursor-default productTable group relative border-b border-black last:border-0';
   return (
     <>
       {

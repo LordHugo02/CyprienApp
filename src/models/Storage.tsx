@@ -36,13 +36,15 @@ export default class Storage {
   // -----
 
   public set(wantedKey : string, val: string){ // Set value of specific attribute
+    console.log(wantedKey);
+    console.log(val);
     
     switch (wantedKey) {
     case 'slug':
-      this.slug = val;
+      this._slug = val;
       break;
     case 'description':
-      this.description = val;
+      this._description = val;
       break;
       
     default:

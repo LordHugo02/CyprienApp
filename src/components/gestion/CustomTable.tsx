@@ -49,7 +49,7 @@ const CustomTable = ({ lines, headers }: IStorageProps) => {
 
   return (
     <table className='w-max min-w-full overflow-x-scroll z-10 relative table-auto'>
-      <thead className='bg-slate-200 sticky z-20 top-0'>
+      <thead className='bg-slate-200 sticky z-20 top-0 rounded-2xl'>
         <tr>
           {Object.entries(headers)
             .map(
