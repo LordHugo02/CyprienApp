@@ -58,7 +58,7 @@ const Editor = () => {
     toggleEditor();
   };  
 
-  const editorClasses = 'w-full relative overflow-hidden delay-75';
+  const editorClasses = 'w-full relative overflow-hidden delay-75 rounded-lg';
 
   const handleChange = (ev: React.ChangeEvent<HTMLInputElement>, key:string ) => {  
     const temp =  [
@@ -72,7 +72,7 @@ const Editor = () => {
     <>
       { !okInit && <Loading wClass='w-full' /> }
       <div ref={editor} className={editorClasses}>
-        <form className='flex flex-wrap justify-between gap-2 bg-slate-400 w-full h-max p-4 pb-20' action="">
+        <form className='flex flex-wrap justify-between gap-2 bg-slate-400 w-full h-max p-4 pb-32' action="">
           { actualClass && Object.entries(actualClass.headers).map((header, index) => <input onChange={event => handleChange(event, header[index])} className='w-9/20 2xl:w-6/20 3xl:w-4/20 4xl:w-3/20 rounded-lg p-2 placeholder:capitalize' type="text" value={item ? item[header[0]] : ''} placeholder={header[1]} name={header[1]} id={header[0]} key={header[1]}/>)}
           { item && <input type="hidden" name="id" value={item['id']} />}
         </form>
