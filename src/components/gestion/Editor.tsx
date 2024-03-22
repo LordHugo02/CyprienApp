@@ -11,6 +11,8 @@ const Editor = () => {
   const [okInit, setOkInit] = useState(false);
   const [item, setItem] = useState<Storage>();
 
+  const editor = useRef(null);
+
   // ===== SET CLASS ==============================================================================
   useEffect(() => {
     setTimeout(() => {
@@ -19,7 +21,7 @@ const Editor = () => {
         item.style.height = '';
         const height = item.getBoundingClientRect().height;
         setEditorHeight(height);
-        handleEditorClose();
+        handleEditorCancel();
         setTimeout(() => {
           item.style.height = '0';
         }, 100);
@@ -30,8 +32,6 @@ const Editor = () => {
       }
     }, 250);
   }, [actualClass]);
-
-  const editor = useRef(null);
 
   useEffect(() => {
     async function initItem(){
@@ -51,12 +51,23 @@ const Editor = () => {
     }
   }, [editorOpen]);
 
-  const handleEditorClose = () => {
+  const handleEditorCancel = () => {
     toggleEditor(false);
+    setTimeout(() => {
+      emptyItem();
+    }, 500);
   };
   const handleEditorToggle = () => {
     toggleEditor();
   };  
+  const emptyItem = () => {
+    const temp:string[][] = [];
+    if(item)
+      Object.keys(item).forEach(current => {
+        temp.push([current, '']);
+      });
+    setItem(Object.fromEntries(temp));
+  };
 
   const editorClasses = 'w-full relative overflow-hidden delay-75 rounded-lg';
 
@@ -78,7 +89,7 @@ const Editor = () => {
         </form>
         <div className="flex gap-4 items-center absolute bottom-4 right-4 text-white font-semibold">
           <div className="rounded cursor-pointer px-4 py-2 bg-blue">Enregistrer</div>
-          <div className="rounded cursor-pointer px-4 py-2 bg-red-600" onClick={handleEditorClose}>Annuler</div>
+          <div className="rounded cursor-pointer px-4 py-2 bg-red-600" onClick={handleEditorCancel}>Annuler</div>
         </div>
       </div>
       <Plus className='bg-blue rounded-full absolute bottom-10 right-10 text-white flex justify-around items-center cursor-pointer w-14 h-14 p-1 z-50' onClick={handleEditorToggle} />
