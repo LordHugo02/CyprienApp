@@ -54,6 +54,7 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
   };
   const handleModify = (id: number) => {
     toggleEditor(true);
+    if(id == -1) return;
     setItemId(id);
   };
 
@@ -64,24 +65,26 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
     handleLineChanges();
   }, [line]);
 
-  const editLinkClass = 'absolute text-blue bottom-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-all';
-  const trClass = 'relative cursor-default productTable group relative border-b border-black last:border-0';
+  const linkClasses = 'absolute text-blue bottom-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-all';
+  const cellClasses = 'cursor-default p-2 min-w-28 pb-8';
   return (
     <>
       {
         actualLine && 
-      <tr className={trClass}>
-        {Object.values(actualLine.content)
-          .map(
-            (col, i) => <td className='p-2 min-w-28 max-w-xl w-max pb-8' key={i}>{col.content}</td>
-          )
-        }
-        <span className={editLinkClass}>
-          <span className='cursor-pointer' onClick={() => handleModify(actualLine.id)}>Modifier</span>|
-          <span className='cursor-pointer text-red-500'>Supprimer</span>
-        </span>
-      </tr>
+          Object.values(actualLine.content)
+            .map(
+              (col, i) => {
+                return (
+                  <div className={cellClasses} key={i}>
+                    {col.content}
+                  </div>
+                );
+              }
+            )
       }
+      <span className={linkClasses} onClick={() => handleModify(actualLine ? actualLine.id : -1)}>
+        <span className='cursor-pointer text-blue'>Modifier</span> | <span className='cursor-pointer text-red-400'>Supprimer</span>
+      </span>
     </>
   );
 };

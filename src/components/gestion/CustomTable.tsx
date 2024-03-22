@@ -41,29 +41,54 @@ const CustomTable = ({ lines, headers }: IStorageProps) => {
 
   useEffect(() => {
     handleSortCol(null, 'name');
+    
   }, []);
   
   useEffect(() => {
     handleSortCol(null, 'name');
   }, [lines]);
 
+  const commonClasses = 'flex flex-row *:w-full';
+  const lineClasses = 'border-black border-b last:border-none group relative';
+  const headerClasses = 'bg-slate-100 rounded-lg p-2';
+
   return (
-    <table className='w-max min-w-full overflow-x-scroll z-10 relative table-auto'>
-      <thead className='bg-slate-200 sticky z-20 top-0 rounded-2xl'>
-        <tr>
+    <>
+      <div className='flex flex-col items-stretch'>
+        <div className={commonClasses+' '+headerClasses}>
           {Object.entries(headers)
             .map(
-              (header) => <th className='cursor-pointer py-2 px-2 pr-10 capitalize sortable relative' onClick={(event) => handleSortCol(event, header[0])} key={header[0]}>{header[1]}</th>,
+              (header) => <div className='cursor-pointer py-2 px-2 pr-10 capitalize sortable relative' onClick={(event) => handleSortCol(event, header[0])} key={header[0]}>{header[1]}</div>,
             )
           }
-        </tr>
-      </thead>
-      <tbody>
+        </div>
         {
-          sortedLines.map((line: object, i) => <CustomTableLine line={line} headers={headers} key={i} />)
+          sortedLines.map((line: object, i) => {
+            return (
+              <div className={commonClasses+' '+lineClasses} key={i}>
+                <CustomTableLine line={line} headers={headers} />
+              </div>
+            );
+          })
         }
-      </tbody>
-    </table>
+      </div>
+      {/* <table className='w-max min-w-full overflow-x-scroll z-10 relative table-auto'>
+        <thead className='bg-slate-200 sticky z-20 top-0 rounded-2xl'>
+          <tr>
+            {Object.entries(headers)
+              .map(
+                (header) => <th className='cursor-pointer py-2 px-2 pr-10 capitalize sortable relative' onClick={(event) => handleSortCol(event, header[0])} key={header[0]}>{header[1]}</th>,
+              )
+            }
+          </tr>
+        </thead>
+        <tbody>
+          {
+            sortedLines.map((line: object, i) => <CustomTableLine line={line} headers={headers} key={i} />)
+          }
+        </tbody>
+      </table> */}
+    </>
   );
 };
 
