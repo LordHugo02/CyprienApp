@@ -9,14 +9,14 @@ import CustomTable from './CustomTable';
 
 const StorageComponent = () => {
 
-  const [lines, setLines] = useState<Storage[]>([]);
+  const [lines] = useState<Storage[]>([]);
   const { actualClass } = useContext(GeneralContext);
   const { setActualClass } = useContext(GeneralContext);
   
   async function init(){
     if(actualClass){
-      const result = await actualClass?.getAllByCompanyId();
-      setLines(result.map((item:object) => new Storage(item)));
+      // const result = await actualClass?.getAllByCompanyId();
+      // setLines(result.map((item:object) => new Storage(item)));
     }
   }
 

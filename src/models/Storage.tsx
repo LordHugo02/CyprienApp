@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export default class Storage {
   public id: number = -1;
 
@@ -36,9 +38,7 @@ export default class Storage {
   // -----
 
   public set(wantedKey : string, val: string){ // Set value of specific attribute
-    console.log(wantedKey);
-    console.log(val);
-    
+ 
     switch (wantedKey) {
     case 'slug':
       this._slug = val;
@@ -53,15 +53,17 @@ export default class Storage {
   }
 
   public async getById(id: number){
-    return await fetch(`${process.env.REACT_APP_API_URL}/storage/${id}`)
-      .then(res => res.json());
+    return await axios.get(`${process.env.REACT_APP_API_URL}/storage/${id}`);
+    // .then(res => res.json());
   }
   public async getAllByCompanyId(){
-    return await fetch(`${process.env.REACT_APP_API_URL}/storage?company=${process.env.REACT_APP_COMPANY_ID}`)
-      .then(res => res.json());
+    return await axios.get(`${process.env.REACT_APP_API_URL}/storage?company=${process.env.REACT_APP_COMPANY_ID}`);
+    // .then(res => {
+    //   console.log(res);
+    // });
   }
   public async updateById(id: number){
-    return await fetch(`${process.env.REACT_APP_API_URL}/storage/${id}`)
-      .then(res => res.json());
+    return await axios.get(`${process.env.REACT_APP_API_URL}/storage/${id}`);
+    // .then(res => res.json());
   }
 }

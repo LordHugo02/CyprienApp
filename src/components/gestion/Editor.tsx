@@ -36,7 +36,9 @@ const Editor = () => {
   useEffect(() => {
     async function initItem(){
       const data = await actualClass?.getById(itemId);
-      setItem(data);
+      console.log(data);
+      
+      // setItem(data);
     }
     initItem();
   }, [itemId, actualClass]);
@@ -69,8 +71,6 @@ const Editor = () => {
     setItem(Object.fromEntries(temp));
   };
 
-  const editorClasses = 'w-full relative overflow-hidden delay-75 rounded-lg';
-
   const handleChange = (ev: React.ChangeEvent<HTMLInputElement>, key:string ) => {  
     const temp =  [
       [key,ev.target.value]
@@ -78,7 +78,14 @@ const Editor = () => {
     const obj = Object.fromEntries(temp);
     setItem(actual => ({...actual, ...obj}));
   };
+  
+  const handleSave = () => {
+    console.log(item);
+    // actualClass!.save(item);
+  };
 
+  const editorClasses = 'w-full relative overflow-hidden delay-75 rounded-lg';
+  
   return (
     <>
       { !okInit && <Loading wClass='w-full' /> }
@@ -88,7 +95,7 @@ const Editor = () => {
           { item && <input type="hidden" name="id" value={item['id']} />}
         </form>
         <div className="flex gap-4 items-center absolute bottom-4 right-4 text-white font-semibold">
-          <div className="rounded cursor-pointer px-4 py-2 bg-blue">Enregistrer</div>
+          <div className="rounded cursor-pointer px-4 py-2 bg-blue" onClick={handleSave}>Enregistrer</div>
           <div className="rounded cursor-pointer px-4 py-2 bg-red-600" onClick={handleEditorCancel}>Annuler</div>
         </div>
       </div>
