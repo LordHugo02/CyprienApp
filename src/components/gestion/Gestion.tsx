@@ -63,7 +63,7 @@ const Gestion = () => {
     }
   }, [asideOpen]);
   
-  const mainClasses = `${asideOpen ? 'w-aside-open' : 'w-aside-close'} h-screen transition-all duration-500 relative`;
+  const mainClasses = `${asideOpen ? 'w-aside-open' : 'w-aside-close'} h-screen transition-all duration-500 relative p-2 flex flex-col ${ editorOpen ? 'gap-2' : 'gap-0' }`;
 
   return (
     <div className="h-screen w-screen">
