@@ -1,12 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 module.exports = {
   safelist: [{
-      pattern: /nm-.+/
-    }
+    pattern: /grid-cols-.+/
+  }
   ],
   content: [
-    "./src/**/*.{html,ts,tsx}",
+    './src/**/*.{html,ts,tsx}',
   ],
   theme: {
     fontFamily: {
@@ -16,69 +16,69 @@ module.exports = {
     },
     neumorphismColor: {...colors,
       'blue':{
-        "base": "#335F8A",
+        'base': '#335F8A',
       }
     },
     extend: {
       colors: {
         'blue':{
-          "sky": '#55D5E0',
-          "DEFAULT": "#335F8A",
-          "dark": "#2F4558",
+          'sky': '#55D5E0',
+          'DEFAULT': '#335F8A',
+          'dark': '#2F4558',
         },
-        'orange': {"DEFAULT":"#F26619"},
-        'yellow': {"DEFAULT":"#F6B12D"}
+        'orange': {'DEFAULT':'#F26619'},
+        'yellow': {'DEFAULT':'#F6B12D'}
       },
       inset: {
-        '1/20': "5%",
-        '2/20': "10%",
-        '3/20': "15%",
-        '4/20': "20%",
-        '5/20': "25%",
-        '6/20': "30%",
-        '7/20': "35%",
-        '8/20': "40%",
-        '9/20': "45%",
-        '10/20': "50%",
-        '11/20': "55%",
-        '12/20': "60%",
-        '13/20': "65%",
-        '14/20': "70%",
-        '15/20': "75%",
-        '16/20': "80%",
-        '17/20': "85%",
-        '18/20': "90%",
-        '19/20': "95%"
+        '1/20': '5%',
+        '2/20': '10%',
+        '3/20': '15%',
+        '4/20': '20%',
+        '5/20': '25%',
+        '6/20': '30%',
+        '7/20': '35%',
+        '8/20': '40%',
+        '9/20': '45%',
+        '10/20': '50%',
+        '11/20': '55%',
+        '12/20': '60%',
+        '13/20': '65%',
+        '14/20': '70%',
+        '15/20': '75%',
+        '16/20': '80%',
+        '17/20': '85%',
+        '18/20': '90%',
+        '19/20': '95%'
       },
       spacing:{
-        '1/20': "5%",
-        '2/20': "10%",
-        '3/20': "15%",
-        '4/20': "20%",
-        '5/20': "25%",
-        '6/20': "30%",
-        '7/20': "35%",
-        '8/20': "40%",
-        '9/20': "45%",
-        '10/20': "50%",
-        '11/20': "55%",
-        '12/20': "60%",
-        '13/20': "65%",
-        '14/20': "70%",
-        '15/20': "75%",
-        '16/20': "80%",
-        '17/20': "85%",
-        '18/20': "90%",
-        '19/20': "95%",
+        '1/20': '5%',
+        '2/20': '10%',
+        '3/20': '15%',
+        '4/20': '20%',
+        '5/20': '25%',
+        '6/20': '30%',
+        '7/20': '35%',
+        '8/20': '40%',
+        '9/20': '45%',
+        '10/20': '50%',
+        '11/20': '55%',
+        '12/20': '60%',
+        '13/20': '65%',
+        '14/20': '70%',
+        '15/20': '75%',
+        '16/20': '80%',
+        '17/20': '85%',
+        '18/20': '90%',
+        '19/20': '95%',
         'half': 'calc((100% - 1.5rem) /2)'
       },
       width:{
-        'screen': "100vw",
-        'aside-close': "calc(100vw - var(--wAsideClosed))",
-        'aside-open': "calc(100vw - var(--wAsideOpen))"
+        'screen': '100vw',
+        'aside-close': 'calc(100vw - var(--wAsideClosed))',
+        'aside-open': 'calc(100vw - var(--wAsideOpen))'
       },
       height:{
-        'screen': "100vh"
+        'screen': '100vh'
       },
       minHeight: {
         '0': '0.125rem',
@@ -152,7 +152,7 @@ module.exports = {
         'component': '0 1px 6px 1px rgba(69,65,78,.1);',
       },
       backgroundImage: {
-        'logo': "url('../images/logo.png')",
+        'logo': 'url(\'../images/logo.png\')',
       },
       transformOrigin:{
         '404-first': '62% 100%',
@@ -165,6 +165,6 @@ module.exports = {
       }
     }
   },
-  plugins: [require("tailwind-neumorphism"), require('./glassmorph')],
+  plugins: [require('tailwind-neumorphism'), require('./glassmorph')],
   darkMode: 'class'
-}
+};

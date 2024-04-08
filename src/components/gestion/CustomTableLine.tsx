@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { EditorContext } from '../../contexts';
+import GeneralContext from '../../contexts/GeneralContext';
 
 
 interface ILineContent {
@@ -20,10 +20,11 @@ interface ILineRef {
 
 const CustomTableLine = ({ line, headers }: IBaseLine) => {
   const [actualLine, setLine] = useState<ILine>();
-  const { toggleEditor, setItemId } = useContext(EditorContext);
+  const { setItemId } = useContext(GeneralContext);
+  const { toggleEditor } = useContext(GeneralContext);
   
   const handleLineChanges = () => {
-    const tempLine = line as ILineRef
+    const tempLine = line as ILineRef;
     const tempTab: ILine = {
       id: tempLine.id,
       content: []
@@ -33,7 +34,7 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
     const baseLinekeys = Object.keys(line);
     const baseLinevalues = Object.values(line);
     refTab.forEach(ref => {
-      const iref = baseLinekeys.indexOf(ref);
+      const iref = baseLinekeys.indexOf('_'+ref);
       const temp: ILineContent = {
         slug: ref,
         content: baseLinevalues[iref],
@@ -50,43 +51,40 @@ const CustomTableLine = ({ line, headers }: IBaseLine) => {
       tempTab.content.push(temp);
     });
     setLine(tempTab);
-  }
+  };
   const handleModify = (id: number) => {
-    toggleEditor(1);
+    toggleEditor(true);
+    if(id == -1) return;
     setItemId(id);
-  }
+  };
 
   useEffect(() => {
-    handleLineChanges()
+    handleLineChanges();
   }, []);
   useEffect(() => {
-    handleLineChanges()
+    handleLineChanges();
   }, [line]);
 
-  const editLinkClass = `absolute text-blue bottom-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-all`;
-  const trClass = `bg-slate-100 even:bg-slate-200 relative cursor-default productTable group relative`;
+  const linkClasses = 'absolute text-blue bottom-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-all';
+  const cellClasses = 'cursor-default p-2 min-w-28 pb-8';
   return (
     <>
-    {
-      actualLine && 
-      <tr className={trClass}>
-        {Object.values(actualLine.content)
-          .map(
-            (col) => {
-              return (
-                <>
-                  <td className='p-2 min-w-28 max-w-xl w-max pb-8'>{col.content}</td>
-                </>
-              );
-            },
-          )
-        }
-        <span className={editLinkClass}>
-          <span className='cursor-pointer' onClick={() => handleModify(actualLine.id)}>Modifier</span>|
-          <span className='cursor-pointer text-red-500'>Supprimer</span>
-        </span>
-      </tr>
-    }
+      {
+        actualLine && 
+          Object.values(actualLine.content)
+            .map(
+              (col, i) => {
+                return (
+                  <div className={cellClasses} key={i}>
+                    {col.content}
+                  </div>
+                );
+              }
+            )
+      }
+      <span className={linkClasses} onClick={() => handleModify(actualLine ? actualLine.id : -1)}>
+        <span className='cursor-pointer text-blue'>Modifier</span> | <span className='cursor-pointer text-red-400'>Supprimer</span>
+      </span>
     </>
   );
 };
